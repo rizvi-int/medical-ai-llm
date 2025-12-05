@@ -12,6 +12,10 @@ logger = logging.getLogger(__name__)
 # Simple in-memory conversation storage (session_id -> messages)
 conversations: Dict[str, List[Dict[str, str]]] = defaultdict(list)
 
+# Cache for extracted structured data to avoid re-processing
+# Format: {session_id: {doc_id: structured_data}}
+extraction_cache: Dict[str, Dict[int, Dict]] = defaultdict(dict)
+
 
 class ChatRequest(BaseModel):
     message: str
@@ -47,10 +51,15 @@ async def chat(request: ChatRequest):
         history = conversations[session_id]
 
         chatbot = get_chatbot_service()
+
+        # Get extraction cache for this session
+        session_cache = extraction_cache[session_id]
+
         response_text = await chatbot.chat(
             user_message=request.message,
             note_id=request.note_id,
-            conversation_history=history
+            conversation_history=history,
+            extraction_cache=session_cache
         )
 
         # Store in conversation history
@@ -72,7 +81,9 @@ async def chat(request: ChatRequest):
 
 @router.post("/chat/reset")
 async def reset_conversation(session_id: str = "default"):
-    """Reset conversation history for a session."""
+    """Reset conversation history and extraction cache for a session."""
     if session_id in conversations:
         del conversations[session_id]
-    return {"message": f"Conversation reset for session {session_id}"}
+    if session_id in extraction_cache:
+        del extraction_cache[session_id]
+    return {"message": f"Conversation and cache reset for session {session_id}"}

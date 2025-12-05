@@ -149,7 +149,7 @@ for idx, message in enumerate(st.session_state.messages):
             if csv_start > 6 and csv_end > csv_start:
                 csv_content = message["content"][csv_start:csv_end]
                 st.download_button(
-                    label="📥 Download CSV File",
+                    label="Download CSV File",
                     data=csv_content,
                     file_name="medical_codes_export.csv",
                     mime="text/csv",
@@ -185,7 +185,7 @@ if prompt := st.chat_input("Enter query..."):
 
                     # Create download button
                     st.download_button(
-                        label="📥 Download CSV File",
+                        label="Download CSV File",
                         data=csv_content,
                         file_name="medical_codes_export.csv",
                         mime="text/csv",

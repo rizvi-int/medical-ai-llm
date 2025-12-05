@@ -132,19 +132,26 @@ class MedicalChatbot:
         # Remove duplicates and sort
         return sorted(set(doc_ids))
 
-    async def chat(self, user_message: str, note_id: Optional[int] = None, conversation_history: list = None) -> str:
+    async def chat(self, user_message: str, note_id: Optional[int] = None, conversation_history: list = None, extraction_cache: dict = None) -> str:
         """
-        Fast hybrid chat approach with conversation memory.
+        Fast hybrid chat approach with conversation memory and extraction caching.
 
         Strategy:
         1. Check conversation history for context
         2. Auto-detect document IDs from message and history
-        3. If asking for medical codes → extract codes from specified documents
+        3. If asking for medical codes → extract codes from specified documents (with caching)
         4. Otherwise → use fast RAG search
         5. If RAG unavailable → provide helpful fallback
+
+        Args:
+            user_message: The user's question
+            note_id: Optional specific document ID
+            conversation_history: Previous messages for context
+            extraction_cache: Dict to cache extracted data {doc_id: structured_data}
         """
         try:
             conversation_history = conversation_history or []
+            extraction_cache = extraction_cache or {}
 
             # Auto-detect document IDs from current message
             doc_ids = self._extract_document_ids(user_message)
@@ -171,6 +178,80 @@ class MedicalChatbot:
 
             if not doc_ids and note_id:
                 doc_ids = [note_id]
+
+            # Handle FHIR conversion requests
+            if "fhir" in user_message.lower() and doc_ids:
+                results = []
+                for doc_id in doc_ids:
+                    # Check cache first
+                    if doc_id in extraction_cache:
+                        structured = extraction_cache[doc_id]
+                    else:
+                        doc = await self._get_document(doc_id)
+                        if doc:
+                            structured = await self._extract_codes(doc["content"])
+                            extraction_cache[doc_id] = structured
+                        else:
+                            results.append(f"Document {doc_id}: Not found")
+                            continue
+
+                    if structured:
+                        # Convert to FHIR
+                        try:
+                            async with httpx.AsyncClient(timeout=30.0) as client:
+                                response = await client.post(
+                                    f"{self.api_base}/to_fhir",
+                                    json={"structured_data": structured}
+                                )
+                                if response.status_code == 200:
+                                    fhir_data = response.json().get("fhir_bundle", {})
+                                    doc = await self._get_document(doc_id)
+                                    results.append(f"**FHIR Bundle for {doc['title']}**\n\n```json\n{self._format_fhir(fhir_data)}\n```")
+                                else:
+                                    results.append(f"Document {doc_id}: FHIR conversion failed")
+                        except Exception as e:
+                            logger.error(f"Error converting to FHIR: {str(e)}")
+                            results.append(f"Document {doc_id}: Error converting to FHIR")
+                    else:
+                        results.append(f"Document {doc_id}: No structured data available")
+
+                return "\n\n" + "="*50 + "\n\n".join(results)
+
+            # Handle vital signs requests
+            if "vital" in user_message.lower() and doc_ids:
+                results = []
+                for doc_id in doc_ids:
+                    # Check cache first
+                    if doc_id in extraction_cache:
+                        structured = extraction_cache[doc_id]
+                    else:
+                        doc = await self._get_document(doc_id)
+                        if doc:
+                            structured = await self._extract_codes(doc["content"])
+                            extraction_cache[doc_id] = structured
+                        else:
+                            results.append(f"Document {doc_id}: Not found")
+                            continue
+
+                    if structured and "vital_signs" in structured:
+                        vitals = structured["vital_signs"]
+                        doc = await self._get_document(doc_id)
+                        result = f"**Vital Signs from {doc['title']}**\n\n"
+                        if vitals.get("blood_pressure"):
+                            result += f"Blood Pressure: {vitals['blood_pressure']}\n"
+                        if vitals.get("heart_rate"):
+                            result += f"Heart Rate: {vitals['heart_rate']}\n"
+                        if vitals.get("temperature"):
+                            result += f"Temperature: {vitals['temperature']}\n"
+                        if vitals.get("respiratory_rate"):
+                            result += f"Respiratory Rate: {vitals['respiratory_rate']}\n"
+                        if vitals.get("oxygen_saturation"):
+                            result += f"Oxygen Saturation: {vitals['oxygen_saturation']}\n"
+                        results.append(result)
+                    else:
+                        results.append(f"Document {doc_id}: No vital signs found")
+
+                return "\n\n" + "="*50 + "\n\n".join(results)
 
             # Handle summarization requests
             if self._needs_summarization(user_message):
@@ -208,29 +289,60 @@ class MedicalChatbot:
                     table_data = []  # For structured formats (table/CSV)
 
                     for doc_id in doc_ids:
-                        doc = await self._get_document(doc_id)
-                        if doc:
-                            structured = await self._extract_codes(doc["content"])
-                            if structured:
-                                # Always collect for table_data (used by both table and CSV)
-                                table_data.append({
-                                    "doc_id": doc_id,
-                                    "title": doc["title"],
-                                    "structured": structured
-                                })
-                                if wants_list:
-                                    results.append(self._format_structured_data(structured, doc["title"]))
-                            else:
-                                table_data.append({
-                                    "doc_id": doc_id,
-                                    "title": doc["title"],
-                                    "structured": None
-                                })
-                                if wants_list:
-                                    results.append(f"Document {doc_id}: No structured data extracted")
+                        # Check cache first
+                        logger.info(f"Processing doc_id={doc_id}, cache keys={list(extraction_cache.keys())}, in_cache={doc_id in extraction_cache}")
+                        if doc_id in extraction_cache:
+                            logger.info(f"Using cached extraction for doc_id={doc_id}")
+                            structured = extraction_cache[doc_id]
+                            doc = await self._get_document(doc_id)
+                            if doc:
+                                # Use cached structured data
+                                if structured:
+                                    table_data.append({
+                                        "doc_id": doc_id,
+                                        "title": doc["title"],
+                                        "structured": structured
+                                    })
+                                    if wants_list:
+                                        results.append(self._format_structured_data(structured, doc["title"]))
+                                else:
+                                    table_data.append({
+                                        "doc_id": doc_id,
+                                        "title": doc["title"],
+                                        "structured": None
+                                    })
+                                    if wants_list:
+                                        results.append(f"Document {doc_id}: No structured data extracted")
                         else:
-                            if wants_list:
-                                results.append(f"Document {doc_id}: Not found")
+                            # Not in cache - extract and cache
+                            logger.info(f"Cache MISS for doc_id={doc_id}, extracting from scratch")
+                            doc = await self._get_document(doc_id)
+                            if doc:
+                                structured = await self._extract_codes(doc["content"])
+                                # Store in cache for future requests
+                                extraction_cache[doc_id] = structured
+                                logger.info(f"Cached extraction for doc_id={doc_id}")
+
+                                if structured:
+                                    # Always collect for table_data (used by both table and CSV)
+                                    table_data.append({
+                                        "doc_id": doc_id,
+                                        "title": doc["title"],
+                                        "structured": structured
+                                    })
+                                    if wants_list:
+                                        results.append(self._format_structured_data(structured, doc["title"]))
+                                else:
+                                    table_data.append({
+                                        "doc_id": doc_id,
+                                        "title": doc["title"],
+                                        "structured": None
+                                    })
+                                    if wants_list:
+                                        results.append(f"Document {doc_id}: No structured data extracted")
+                            else:
+                                if wants_list:
+                                    results.append(f"Document {doc_id}: Not found")
 
                     # Return in requested format
                     if wants_csv and table_data:
@@ -239,13 +351,13 @@ class MedicalChatbot:
                     if wants_table and table_data:
                         table_output = self._format_as_table(table_data)
                         # Add helpful footer suggesting alternative formats
-                        footer = "\n\n💡 **Tip**: You can also ask for:\n- 'detailed list' for more information with reasoning\n- 'export to CSV' for spreadsheet format"
+                        footer = "\n\n**Tip**: You can also ask for:\n- 'detailed list' for more information with reasoning\n- 'export to CSV' for spreadsheet format"
                         return table_output + footer
 
                     results_output = "\n\n" + "="*50 + "\n\n".join(results) if results else "No documents processed."
                     # Add helpful footer for list format
                     if len(doc_ids) > 1:
-                        footer = "\n\n💡 **Tip**: Try asking for 'in a table' to compare documents side-by-side"
+                        footer = "\n\n**Tip**: Try asking for 'in a table' to compare documents side-by-side"
                         results_output += footer
                     return results_output
                 else:
@@ -260,11 +372,20 @@ class MedicalChatbot:
                                 # Process all documents in parallel for speed
                                 import asyncio
                                 async def extract_one(doc_id):
-                                    doc = await self._get_document(doc_id)
-                                    if doc:
-                                        structured = await self._extract_codes(doc["content"])
-                                        if structured:
+                                    # Check cache first
+                                    if doc_id in extraction_cache:
+                                        structured = extraction_cache[doc_id]
+                                        doc = await self._get_document(doc_id)
+                                        if doc and structured:
                                             return self._format_structured_data(structured, doc["title"])
+                                    else:
+                                        # Not in cache - extract and cache
+                                        doc = await self._get_document(doc_id)
+                                        if doc:
+                                            structured = await self._extract_codes(doc["content"])
+                                            extraction_cache[doc_id] = structured
+                                            if structured:
+                                                return self._format_structured_data(structured, doc["title"])
                                     return None
 
                                 results = await asyncio.gather(*[extract_one(doc_id) for doc_id in all_ids])
@@ -380,7 +501,7 @@ class MedicalChatbot:
                     lines.append(f',,{diag_name},{ai_code},{confidence},{validated_code},{med_name},{rx_code},"{reasoning}"')
 
         csv_content = "\n".join(lines)
-        return f"```csv\n{csv_content}\n```\n\n💾 **Copy the CSV above** and paste into Excel or save as a .csv file"
+        return f"```csv\n{csv_content}\n```"
 
     def _format_as_table(self, table_data: list) -> str:
         """Format multiple document results as a markdown table."""
@@ -420,13 +541,13 @@ class MedicalChatbot:
                     validated_code = cond.get("validated_icd10_code", "N/A")
                     confidence = cond.get("confidence", "").upper()
 
-                    # Format confidence as stars
+                    # Format confidence
                     if confidence == "HIGH":
-                        conf_display = "⭐⭐⭐"
+                        conf_display = "HIGH"
                     elif confidence == "MEDIUM":
-                        conf_display = "⭐⭐"
+                        conf_display = "MED"
                     elif confidence == "LOW":
-                        conf_display = "⭐"
+                        conf_display = "LOW"
                     else:
                         conf_display = "-"
 
@@ -483,18 +604,10 @@ class MedicalChatbot:
                     confidence = diag.get("confidence", "").upper()
                     reasoning = diag.get("code_reasoning", "")
 
-                    # Format confidence with stars
-                    confidence_display = ""
-                    if confidence == "HIGH":
-                        confidence_display = " ⭐⭐⭐"
-                    elif confidence == "MEDIUM":
-                        confidence_display = " ⭐⭐"
-                    elif confidence == "LOW":
-                        confidence_display = " ⭐"
-
-                    line = f"  • {name} (ICD-10: {ai_code}){confidence_display}"
+                    # Format confidence
+                    line = f"  - {name} (ICD-10: {ai_code})"
                     if confidence:
-                        line += f" {confidence}"
+                        line += f" [{confidence}]"
                     parts.append(line)
 
                     if reasoning:
@@ -528,6 +641,11 @@ class MedicalChatbot:
                 parts.append(f"  • {proc.get('name', 'Unknown')}")
 
         return "\n".join(parts) if parts else "No structured data extracted"
+
+    def _format_fhir(self, fhir_bundle: dict) -> str:
+        """Format FHIR bundle as readable JSON."""
+        import json
+        return json.dumps(fhir_bundle, indent=2)
 
 
 # Global singleton

@@ -96,41 +96,61 @@ class MedicalChatbot:
         return any(keyword in message_lower for keyword in summary_keywords)
 
     def _extract_document_ids(self, message: str) -> list:
-        """Extract document IDs from message (e.g., 'document 1', 'doc 3', 'patient 2')."""
+        """Extract document IDs from message (e.g., 'document 1', 'doc 3', 'patient 2 and 3')."""
         import re
-        # Match patterns like "document 1", "doc 3", "patient 2", "case 4", etc.
+
+        # Match patterns like "document 1 and 3", "doc 2, 3, 4", "patient 1-3", etc.
         patterns = [
-            r'document\s+(\d+)',
-            r'doc\s+(\d+)',
-            r'patient\s+(\d+)',
-            r'case\s+(\d+)',
-            r'note\s+(\d+)',
-            r'\bid\s+(\d+)',
-            r'#(\d+)',
+            r'documents?\s+([\d\s,and-]+)',
+            r'docs?\s+([\d\s,and-]+)',
+            r'patients?\s+([\d\s,and-]+)',
+            r'cases?\s+([\d\s,and-]+)',
+            r'notes?\s+([\d\s,and-]+)',
+            r'\bid\s+([\d\s,and-]+)',
+            r'#([\d\s,and-]+)',
         ]
 
         doc_ids = []
         message_lower = message.lower()
+
         for pattern in patterns:
             matches = re.findall(pattern, message_lower)
-            doc_ids.extend([int(m) for m in matches])
+            for match in matches:
+                # Extract all numbers from the matched string
+                # Handles "2 and 3", "2, 3, 4", "1-3", etc.
+                numbers = re.findall(r'\d+', match)
+                doc_ids.extend([int(n) for n in numbers])
 
         # Remove duplicates and sort
         return sorted(set(doc_ids))
 
-    async def chat(self, user_message: str, note_id: Optional[int] = None) -> str:
+    async def chat(self, user_message: str, note_id: Optional[int] = None, conversation_history: list = None) -> str:
         """
-        Fast hybrid chat approach.
+        Fast hybrid chat approach with conversation memory.
 
         Strategy:
-        1. Auto-detect document IDs from message
-        2. If asking for medical codes → extract codes from specified documents
-        3. Otherwise → use fast RAG search
-        4. If RAG unavailable → provide helpful fallback
+        1. Check conversation history for context
+        2. Auto-detect document IDs from message and history
+        3. If asking for medical codes → extract codes from specified documents
+        4. Otherwise → use fast RAG search
+        5. If RAG unavailable → provide helpful fallback
         """
         try:
-            # Auto-detect document IDs from message
+            conversation_history = conversation_history or []
+
+            # Auto-detect document IDs from current message
             doc_ids = self._extract_document_ids(user_message)
+
+            # If no IDs found and user says "it" or "them", check last assistant message for IDs
+            if not doc_ids and conversation_history:
+                if any(word in user_message.lower() for word in ["it", "them", "that", "those", "these"]):
+                    # Look back at last few messages for document IDs
+                    for msg in reversed(conversation_history[-4:]):
+                        if msg.get("role") == "assistant":
+                            doc_ids = self._extract_document_ids(msg.get("content", ""))
+                            if doc_ids:
+                                break
+
             if not doc_ids and note_id:
                 doc_ids = [note_id]
 

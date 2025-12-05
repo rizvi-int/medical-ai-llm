@@ -10,6 +10,10 @@ WORKDIR /app
 # Copy dependency files
 COPY pyproject.toml ./
 COPY .python-version ./
+COPY uv.lock ./
+
+# Copy source code (needed for editable install)
+COPY src/ ./src/
 
 # Install dependencies
 RUN uv sync --frozen
@@ -31,14 +35,16 @@ WORKDIR /app
 # Copy dependency files and lock
 COPY pyproject.toml ./
 COPY .python-version ./
+COPY uv.lock ./
 
 # Copy virtual environment from builder
 COPY --from=builder /app/.venv /app/.venv
 
 # Copy application code
 COPY src/ ./src/
-COPY alembic/ ./alembic/
-COPY alembic.ini ./
+
+# Create data directory for SQLite
+RUN mkdir -p /app/data
 
 # Set environment variables
 ENV PYTHONUNBUFFERED=1
@@ -52,4 +58,4 @@ HEALTHCHECK --interval=30s --timeout=10s --start-period=5s --retries=3 \
     CMD python -c "import requests; requests.get('http://localhost:8000/health')"
 
 # Run the application
-CMD ["uvicorn", "medical_notes_processor.main:app", "--host", "0.0.0.0", "--port", "8000"]
+CMD ["uvicorn", "src.medical_notes_processor.main:app", "--host", "0.0.0.0", "--port", "8000"]

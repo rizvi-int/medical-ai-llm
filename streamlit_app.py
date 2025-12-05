@@ -48,10 +48,12 @@ if "conversation_count" not in st.session_state:
 def send_message(message: str) -> Dict[str, Any]:
     """Send a message to the chatbot API."""
     try:
+        # Use longer timeout for "all patients" requests
+        timeout = 120 if "all" in message.lower() else 60
         response = requests.post(
             f"{API_BASE}/chat",
             json={"message": message},
-            timeout=60
+            timeout=timeout
         )
         response.raise_for_status()
         return response.json()

@@ -176,12 +176,19 @@ class MedicalChatbot:
                             if response.status_code == 200:
                                 all_ids = response.json()
                                 results = []
-                                for doc_id in all_ids:
+
+                                # Process all documents in parallel for speed
+                                import asyncio
+                                async def extract_one(doc_id):
                                     doc = await self._get_document(doc_id)
                                     if doc:
                                         structured = await self._extract_codes(doc["content"])
                                         if structured:
-                                            results.append(self._format_structured_data(structured, doc["title"]))
+                                            return self._format_structured_data(structured, doc["title"])
+                                    return None
+
+                                results = await asyncio.gather(*[extract_one(doc_id) for doc_id in all_ids])
+                                results = [r for r in results if r]  # Filter out None values
 
                                 return "\n\n" + "="*50 + "\n\n".join(results) if results else "No data extracted."
 

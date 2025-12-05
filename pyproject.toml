@@ -1,0 +1,73 @@
+[project]
+name = "medical-notes-processor"
+version = "0.1.0"
+description = "AI-powered medical document processing system with LLM integration, RAG pipeline, and FHIR conversion"
+readme = "README.md"
+authors = [
+    { name = "Abbas Rizvi", email = "aarizv@gmail.com" }
+]
+requires-python = ">=3.11"
+dependencies = [
+    # FastAPI and server
+    "fastapi>=0.109.0",
+    "uvicorn[standard]>=0.27.0",
+    "pydantic>=2.5.0",
+    "pydantic-settings>=2.1.0",
+    # Database
+    "sqlalchemy>=2.0.25",
+    "alembic>=1.13.1",
+    "asyncpg>=0.29.0",
+    "psycopg2-binary>=2.9.9",
+    "aiosqlite>=0.19.0",  # For local development
+    # LangChain ecosystem
+    "langchain>=0.1.0",
+    "langchain-openai>=0.0.2",
+    "langchain-community>=0.0.10",
+    "langgraph>=0.0.20",
+    # Vector store
+    "qdrant-client>=1.7.0",
+    # HTTP client
+    "httpx>=0.26.0",
+    "aiohttp>=3.9.1",
+    # Utilities
+    "python-multipart>=0.0.6",
+    "python-dotenv>=1.0.0",
+    "tenacity>=8.2.3",
+    "streamlit>=1.52.0",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=7.4.3",
+    "pytest-asyncio>=0.23.2",
+    "pytest-cov>=4.1.0",
+    "httpx>=0.26.0",
+    "black>=23.12.1",
+    "ruff>=0.1.9",
+    "mypy>=1.8.0",
+]
+
+[project.scripts]
+medical-notes-processor = "medical_notes_processor:main"
+
+[build-system]
+requires = ["uv_build>=0.9.15,<0.10.0"]
+build-backend = "uv_build"
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+asyncio_mode = "auto"
+
+[tool.black]
+line-length = 100
+target-version = ["py311"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py311"
+
+[tool.mypy]
+python_version = "3.11"
+warn_return_any = true
+warn_unused_configs = true
+disallow_untyped_defs = false

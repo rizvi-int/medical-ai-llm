@@ -1,0 +1,142 @@
+SOAP Note — Encounter Date: 2024-09-15 (Geriatric Complex Care Visit)
+Patient: Robert Chen, DOB 1942-06-18 (82 years)
+
+S:
+Patient presents for comprehensive geriatric assessment and medication review. Accompanied by daughter. Patient reports increased fatigue over past 3 months, occasional dizziness when standing, and difficulty sleeping. Denies chest pain, shortness of breath at rest, or falls. However, daughter reports patient had 2 "near-falls" in past month when getting up from chair.
+
+Patient lives alone in single-story home. Daughter visits 3 times weekly. Patient manages own ADLs but daughter helps with grocery shopping and medication management. Patient uses cane for ambulation. Reports mild memory issues ("where did I put my keys") but denies getting lost or major confusion.
+
+Chronic conditions include hypertension (diagnosed 20 years ago), heart failure with preserved ejection fraction (HFpEF), chronic kidney disease stage 3, Type 2 diabetes mellitus, benign prostatic hyperplasia (BPH), osteoarthritis of knees, and mild cognitive impairment.
+
+CURRENT MEDICATIONS (Patient taking 12 medications):
+1. Lisinopril 20 mg daily (hypertension)
+2. Metoprolol succinate 50 mg daily (heart failure, hypertension)
+3. Furosemide 40 mg daily (heart failure)
+4. Spironolactone 25 mg daily (heart failure)
+5. Metformin 1000 mg twice daily (diabetes)
+6. Atorvastatin 40 mg at bedtime (hyperlipidemia)
+7. Baby aspirin 81 mg daily (cardiovascular prevention)
+8. Tamsulosin 0.4 mg at bedtime (BPH)
+9. Acetaminophen 650 mg as needed for arthritis pain
+10. Calcium + Vitamin D 600mg/400IU twice daily
+11. Omeprazole 20 mg daily (GERD)
+12. Diphenhydramine 25 mg at bedtime PRN for sleep
+
+PMH: As above, plus remote history of prostate cancer (treated with radiation 2006, no recurrence)
+PSH: Appendectomy (1965), Right knee arthroscopy (2010)
+Allergies: Penicillin (rash)
+Social: Widowed 5 years ago. Retired accountant. Lives alone. Non-smoker (quit 30 years ago, 20 pack-year history). Occasional glass of wine with dinner. No illicit drugs.
+Family Hx: Father died of MI at age 70, mother died of stroke at age 78. Sister with Alzheimer's disease.
+
+O:
+Vitals:
+- BP sitting: 142/78 mmHg
+- BP standing (after 1 min): 118/68 mmHg (orthostatic hypotension - 24 mmHg drop in systolic)
+- HR: 64 bpm (regular)
+- Weight: 72 kg (BMI 24.8)
+- Temp: 36.6°C
+- O2 saturation: 96% on room air
+
+General: Elderly Asian male, appears stated age, well-groomed, cooperative but slow to respond to questions
+HEENT: Normocephalic, PERRLA but sluggish, mild arcus senilis, hearing aids bilateral, dentition poor (multiple missing teeth)
+Neck: Supple, no JVD, no carotid bruits, no thyromegaly
+Lungs: Clear to auscultation bilaterally, no rales or wheezes
+CV: Regular rate and rhythm, normal S1/S2, 2/6 systolic murmur at apex (known mitral regurgitation), no S3/S4
+Abd: Soft, non-tender, non-distended, normal bowel sounds, no hepatosplenomegaly, no masses
+GU: Prostate mildly enlarged, non-tender (per last exam 6 months ago)
+Extremities: Trace pedal edema bilaterally, mild bilateral knee crepitus and tenderness, no warmth or effusion
+Skin: Multiple actinic keratoses on forearms, no suspicious lesions
+Neuro: Alert and oriented x3 (person, place, time), mild word-finding difficulty, cranial nerves II-XII intact, strength 4/5 lower extremities (age-appropriate), sensation intact, gait slow with cane, positive Romberg test
+Psych: Mood euthymic, affect appropriate
+
+Functional Assessment:
+- ADLs: Independent (bathing, dressing, eating, toileting, transferring)
+- IADLs: Needs help with shopping, medications, finances; independent with cooking, housework
+- Fall Risk: Timed Up and Go test: 16 seconds (elevated fall risk, normal <12 seconds)
+- Mini-Cog: 3/5 (suggests cognitive impairment)
+
+Labs (drawn today):
+- Hemoglobin A1c: 7.2% (above goal of <7% for age)
+- BUN: 28 mg/dL (elevated)
+- Creatinine: 1.4 mg/dL (stable, eGFR 48 mL/min/1.73m² - CKD Stage 3)
+- Sodium: 136 mEq/L
+- Potassium: 4.8 mEq/L (high-normal, on spironolactone)
+- Hemoglobin: 12.8 g/dL (mild anemia)
+- TSH: 2.4 mIU/L (normal)
+- Vitamin B12: 380 pg/mL (low-normal)
+- 25-OH Vitamin D: 22 ng/mL (insufficient, goal >30)
+- BNP: 280 pg/mL (stable for HFpEF)
+- Lipid panel: LDL 88 mg/dL, HDL 45 mg/dL, Triglycerides 135 mg/dL (at goal on statin)
+
+A:
+1. Polypharmacy (12 medications) with potential medication-related issues
+2. Orthostatic hypotension, likely medication-induced (furosemide, metoprolol, lisinopril, tamsulosin)
+3. Increased fall risk (orthostasis, gait instability, polypharmacy)
+4. Mild cognitive impairment, stable (need to monitor for progression)
+5. Heart failure with preserved ejection fraction, stable (NYHA Class II)
+6. Hypertension, adequately controlled
+7. Type 2 diabetes mellitus with suboptimal control (A1c 7.2%)
+8. Chronic kidney disease stage 3, stable
+9. Benign prostatic hyperplasia, stable on tamsulosin
+10. Osteoarthritis of bilateral knees
+11. Vitamin D insufficiency
+12. Mild anemia of chronic disease
+
+P:
+MEDICATION OPTIMIZATION (Deprescribing and Adjustments):
+1. **DISCONTINUE Diphenhydramine** - High-risk medication in elderly (anticholinergic, fall risk, cognitive impairment). Recommend non-pharmacologic sleep hygiene instead.
+2. **REDUCE Furosemide** from 40 mg to 20 mg daily - Contributing to orthostasis, patient has minimal edema. Will monitor weight and symptoms.
+3. **REDUCE Lisinopril** from 20 mg to 10 mg daily - Contributing to orthostasis, BP adequately controlled.
+4. **CHANGE Metformin** from 1000 mg BID to 500 mg BID - Dose adjustment for CKD (eGFR 48), reduce GI side effects.
+5. **CONTINUE** other medications as prescribed (metoprolol, spironolactone, atorvastatin, aspirin, tamsulosin, omeprazole, calcium/vitamin D, acetaminophen PRN)
+
+VITAMIN SUPPLEMENTATION:
+- Increase Vitamin D to 2000 IU daily (from current 800 IU)
+- Start Vitamin B12 1000 mcg daily (low-normal level, may help with cognition)
+
+FALL PREVENTION:
+- Physical therapy referral for gait training and balance exercises
+- Home safety evaluation by occupational therapy (remove throw rugs, install grab bars)
+- Continue use of cane, consider walker if instability persists
+- Educate patient to rise slowly from sitting/lying to prevent orthostatic symptoms
+- Daughter to monitor for falls, encourage patient to wear medical alert device
+
+COGNITIVE MONITORING:
+- Referral to neurology for formal cognitive assessment (rule out early dementia)
+- Avoid anticholinergic medications
+- Encourage cognitive stimulation (reading, puzzles, social activities)
+- Daughter educated on signs of worsening cognition
+
+DIABETES MANAGEMENT:
+- Goal A1c <7.5% for elderly patient with multiple comorbidities (less stringent to avoid hypoglycemia)
+- Continue metformin at reduced dose
+- Recheck A1c in 3 months
+- Home glucose monitoring weekly (fasting)
+
+KIDNEY FUNCTION:
+- Monitor creatinine every 6 months
+- Ensure adequate hydration
+- Avoid NSAIDs (patient using acetaminophen, which is appropriate)
+
+PREVENTIVE CARE:
+- Pneumococcal vaccine (PPSV23) - due now, will administer today
+- Influenza vaccine - due in October (schedule for next visit)
+- Colorectal cancer screening up to date (last colonoscopy 2019, normal)
+- Hearing aids: encourage consistent use
+
+ADVANCE CARE PLANNING:
+- Discussed goals of care with patient and daughter
+- Patient has living will and healthcare proxy (daughter is proxy)
+- Prefers to avoid hospitalization if possible, focus on quality of life
+- Code status: DNR/DNI documented in chart
+
+NEXT VISIT:
+- Return in 1 month for blood pressure and orthostasis recheck after medication adjustments
+- Labs in 3 months: BMP, A1c, CBC
+- Consider geriatric care manager to help coordinate care
+
+Patient and daughter counseled on medication changes, fall prevention strategies, and warning signs. Questions answered. Will call if any concerns.
+
+Signed:
+Dr. Sarah Patel, MD
+Internal Medicine / Geriatrics

@@ -1,0 +1,83 @@
+SOAP Note — Encounter Date: 2024-09-03 (Pediatric Well-Child Visit)
+Patient: Emma Chen, DOB 2019-01-15 (5 years, 8 months)
+
+S:
+Patient presents for kindergarten physical and 5-year well-child check. Mother reports Emma is generally healthy, active, and doing well in pre-K. No recent illnesses. Eating well, sleeping 10-11 hours per night. Toilet trained, no enuresis. Meeting developmental milestones appropriately.
+
+Mother has questions about vaccines required for school entry and Emma's occasional complaints of "tummy aches" after eating dairy products (ice cream, milk). No vomiting, diarrhea, or weight loss noted.
+
+PMH: Full-term birth, uncomplicated delivery, birth weight 3.2 kg
+Immunizations: Up to date through age 4
+Allergies: No known drug allergies
+Family Hx: Mother with lactose intolerance, paternal grandfather with Type 2 DM
+
+Social: Lives with both parents and 8-year-old brother. Attends pre-K 5 days/week. No pets. Non-smoking household.
+
+O:
+Vitals:
+- Height: 110 cm (50th percentile)
+- Weight: 18.5 kg (55th percentile)
+- BMI: 15.3 (healthy range)
+- BP: 95/60 mmHg
+- HR: 88 bpm
+- Temp: 36.8°C
+- Vision screening: 20/20 both eyes
+
+General: Alert, active, cooperative 5-year-old girl in no distress
+HEENT: Normocephalic, atraumatic. PERRLA. TMs clear bilaterally. Pharynx clear, no erythema. Good dentition with no obvious caries.
+Neck: Supple, no lymphadenopathy
+Lungs: Clear to auscultation bilaterally, no wheezes/rales/rhonchi
+CV: RRR, normal S1/S2, no murmurs
+Abd: Soft, non-tender, non-distended, normal bowel sounds, no hepatosplenomegaly
+Extremities: Full ROM, no edema, normal gait
+Skin: No rashes or lesions
+Neuro: Age-appropriate speech and behavior, gross/fine motor skills WNL
+
+Developmental assessment:
+- Can count to 20, knows colors and shapes
+- Can write first name
+- Hops on one foot, catches a ball
+- Engages in pretend play with peers
+All milestones appropriate for age.
+
+A:
+1. Healthy 5-year-old female, well-child visit
+2. Age-appropriate growth and development (height/weight 50-55th percentiles)
+3. Suspected lactose intolerance (based on history and family history)
+4. Due for kindergarten immunizations
+
+P:
+IMMUNIZATIONS (administered today):
+- DTaP (diphtheria, tetanus, pertussis) - 5th dose
+- IPV (inactivated polio vaccine) - 4th dose
+- MMR (measles, mumps, rubella) - 2nd dose
+- Varicella (chickenpox) - 2nd dose
+
+All vaccines tolerated well. Parent educated on possible mild fever/soreness, use of acetaminophen if needed.
+
+LACTOSE INTOLERANCE:
+- Trial elimination of dairy for 2 weeks, observe for symptom improvement
+- Recommend calcium-fortified alternatives (almond milk, soy milk)
+- Ensure adequate calcium intake (800mg/day for age)
+- Consider lactase enzyme supplements (Lactaid) if wants to consume dairy
+- Re-assess at follow-up
+
+ANTICIPATORY GUIDANCE:
+- Safety: car seat (booster seat with seat belt), helmet for bike riding, water safety
+- Nutrition: balanced diet, limit juice/sweets, encourage fruits/vegetables
+- Dental: brush teeth twice daily, first dental visit if not already done
+- Screen time: <1 hour educational content per day
+- Sleep: 10-12 hours per night
+- Physical activity: 60+ minutes active play daily
+
+HEALTH MAINTENANCE:
+- Provided school physical form (signed)
+- Hearing screening: passed
+- Lead screening: not indicated (low-risk area)
+- Next well-child visit: 6-year check (September 2025)
+
+Mother questions answered. Return PRN for illness or concerns. May call with questions about lactose trial.
+
+Signed:
+Dr. Robert Patel, MD
+Pediatrics

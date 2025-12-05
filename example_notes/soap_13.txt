@@ -1,0 +1,189 @@
+SOAP Note — Encounter Date: 2024-09-18 (Urgent Care - Acute Illness)
+Patient: Amanda Lee, DOB 2001-05-14 (23 years)
+
+S:
+Chief Complaint: "I have a really bad sore throat and can't swallow. I think I have strep."
+
+HPI:
+Patient is a 23-year-old female presenting to urgent care with acute onset of severe sore throat beginning 3 days ago. Describes pain as 8/10, worsening, with difficulty swallowing solids and liquids. Reports fever at home (measured 102.5°F this morning). Denies cough, runny nose, or congestion. No nausea, vomiting, or diarrhea.
+
+Also reports extreme fatigue ("sleeping 12-14 hours/day"), body aches, and chills. Tried over-the-counter ibuprofen and throat lozenges with minimal relief. Roommate had similar symptoms 2 weeks ago and was diagnosed with strep throat, treated with antibiotics and improved.
+
+Denies difficulty breathing, drooling, voice changes (hoarseness), neck swelling, or rash. No recent travel. Works as barista at coffee shop, exposed to many people daily.
+
+PMH: Generally healthy, no chronic medical conditions
+PSH: Tonsillectomy as child - WAIT, patient corrects herself: "Actually no, I still have my tonsils. I was supposed to get them out as a kid but never did."
+Medications: Oral contraceptive (Lo Loestrin Fe), ibuprofen 400 mg PRN (took 2 doses today)
+Allergies: No known drug allergies
+Immunizations: Up to date, including COVID-19 vaccine (last booster 6 months ago)
+
+Social:
+- Single, lives with 2 roommates
+- Works full-time as barista
+- Non-smoker, occasional alcohol (social), no illicit drugs
+- Sexually active, monogamous relationship, uses oral contraceptives + condoms
+
+Family Hx: Noncontributory
+
+O:
+Vitals:
+- Temp: 38.9°C (102°F)
+- BP: 118/76 mmHg
+- HR: 98 bpm
+- RR: 16/min
+- O2 saturation: 98% on room air
+- Weight: 58 kg
+
+General: Appears mildly ill, speaking in full sentences but wincing with swallowing
+
+HEENT:
+- Oropharynx: **Significant tonsillar enlargement and erythema bilaterally (3+ tonsils, nearly touching in midline), thick white exudates on both tonsils**
+- Soft palate: Multiple petechiae on soft palate and uvula
+- Uvula: Midline, no deviation
+- No trismus (able to open mouth fully)
+- Mucous membranes: Dry (likely due to decreased oral intake)
+- TMs: Clear bilaterally, no effusion
+- Nose: No rhinorrhea or congestion
+
+Neck:
+- **Tender anterior cervical lymphadenopathy bilaterally** (2-3 cm nodes, mobile, tender)
+- **Tender posterior cervical lymphadenopathy** (enlarged, tender)
+- No posterior pharyngeal swelling or fluctuance
+- Full range of motion, no nuchal rigidity
+- No thyromegaly
+
+Lungs: Clear to auscultation bilaterally, no wheezes or cramps
+
+CV: Tachycardic (HR 98), regular rhythm, normal S1/S2, no murmurs
+
+Abd: Soft, non-tender, non-distended, normal bowel sounds
+- **Mild splenomegaly palpable** (spleen tip palpable 2 cm below left costal margin)
+
+Skin: No rash, no jaundice, warm and dry
+
+Extremities: No edema, no joint swelling
+
+Rapid Strep Test (in-office): **NEGATIVE**
+
+Monospot Test (heterophile antibody test): **POSITIVE**
+
+Complete Blood Count (in-office):
+- WBC: 14,500/µL (elevated, with lymphocytosis)
+- Lymphocytes: 65% (elevated, normal 20-40%)
+- **Atypical lymphocytes: 18%** (highly suggestive of infectious mononucleosis)
+- Hemoglobin: 13.2 g/dL (normal)
+- Platelets: 178,000/µL (normal)
+
+Liver Function Tests (in-office):
+- AST: 95 U/L (elevated, normal <35)
+- ALT: 110 U/L (elevated, normal <35)
+- Transaminitis consistent with infectious mononucleosis
+
+A:
+1. **Infectious Mononucleosis (Epstein-Barr Virus infection)** - CONFIRMED
+   - Clinical presentation: Severe pharyngitis, tonsillar exudates, fever, fatigue, lymphadenopathy, splenomegaly
+   - Positive Monospot test
+   - Atypical lymphocytosis (18% on CBC)
+   - Transaminitis (elevated AST/ALT)
+
+2. **Acute pharyngitis secondary to EBV** (not streptococcal - rapid strep negative)
+
+3. **Splenomegaly secondary to EBV infection** (increased risk of splenic rupture)
+
+4. **Mild dehydration** (secondary to decreased oral intake)
+
+P:
+SUPPORTIVE CARE (No specific antiviral treatment for EBV):
+
+**Symptom Management:**
+- **Ibuprofen 400-600 mg every 6 hours as needed for pain and fever** (continue current regimen, increase dose if needed)
+- **Acetaminophen 650 mg every 6 hours as needed** (can alternate with ibuprofen for better symptom control)
+- Avoid aspirin (risk of Reye's syndrome in viral infections, though rare in adults)
+
+**Throat Care:**
+- **Viscous lidocaine 2% oral solution** - swish and spit (or swallow) 15 mL every 4 hours as needed for severe throat pain
+  - Numbs throat to allow eating/drinking
+  - Caution: May impair swallowing reflex, start with small amounts
+- Salt water gargles (1/2 tsp salt in 8 oz warm water) every 2-3 hours
+- Throat lozenges or sprays (e.g., Chloraseptic)
+- Humidifier at night
+
+**Hydration and Nutrition:**
+- **Increase oral fluid intake** - Goal: 2-3 liters/day
+  - Water, electrolyte drinks (Gatorade, Pedialyte), popsicles, ice chips
+- Soft, cool foods (applesauce, yogurt, smoothies, ice cream, mashed potatoes)
+- Avoid acidic or spicy foods (may irritate throat)
+
+**Rest:**
+- **Strict rest for at least 1 week** (no work)
+- Anticipate need for 2-3 weeks total before feeling back to normal
+- Fatigue may persist for several weeks to months
+
+**CRITICAL: AVOID CONTACT SPORTS AND HEAVY LIFTING:**
+- **Absolute restriction from contact sports, heavy lifting, or strenuous physical activity for 4-6 weeks**
+  - Rationale: Splenomegaly significantly increases risk of splenic rupture (can be life-threatening)
+  - No gym, no running, no lifting >10 lbs
+  - Avoid abdominal trauma of any kind
+- Patient counseled on seriousness of this restriction
+
+**AVOID ANTIBIOTICS:**
+- **Do NOT use amoxicillin or ampicillin**
+  - These antibiotics cause a characteristic maculopapular rash in >90% of patients with EBV
+  - Rash can be severe and uncomfortable
+  - Since rapid strep test is negative, no indication for antibiotics
+
+**Infection Control:**
+- EBV is transmitted via saliva ("kissing disease")
+- Avoid kissing, sharing drinks/utensils, sharing food
+- Patient can shed virus for several weeks to months
+- Roommates should be aware, but if already exposed (roommate had similar illness 2 weeks ago), likely already infected
+
+MONITORING AND FOLLOW-UP:
+
+**Warning Signs - Instruct patient to seek emergency care if:**
+- Difficulty breathing or shortness of breath (can indicate airway obstruction from severe tonsillar swelling)
+- Severe abdominal pain, especially left upper quadrant (could indicate splenic rupture)
+- Inability to swallow liquids or severe dehydration
+- Persistent high fever >5 days or fever that returns after improving
+
+**Routine Follow-Up:**
+- Return to urgent care or see PCP in **1 week** for reassessment
+- If symptoms worsen before then, return sooner or go to ED
+- Repeat liver function tests in 2-4 weeks (if not improved, may need hepatology referral)
+
+**Return to Work:**
+- Patient to remain out of work for at least **1 week** (work note provided)
+- May return to work when fever-free for 24 hours without medication AND able to eat/drink normally
+- Anticipate 7-10 days off work
+- No restrictions on work after that, but avoid close contact with others' drinks/food
+
+**Return to Physical Activity:**
+- **No strenuous activity or contact sports for 4-6 weeks**
+- May return to light activity (walking) after 2 weeks if feeling better
+- Before returning to contact sports or heavy exercise, should follow up with PCP for repeat abdominal exam to ensure spleen is no longer enlarged
+- Consider ultrasound to confirm spleen size normalization before clearance for contact sports (optional, at PCP discretion)
+
+PATIENT EDUCATION:
+
+- Explained diagnosis of infectious mononucleosis (EBV infection)
+- Reviewed natural course: Symptoms peak at 1 week, gradually improve over 2-3 weeks, but fatigue may last longer
+- Emphasized **CRITICAL importance of avoiding contact sports/heavy lifting** due to splenomegaly and rupture risk
+- Explained that this is a viral infection with no specific treatment, only supportive care
+- Reviewed when to seek emergency care
+- Provided written instructions
+
+PRESCRIPTIONS:
+1. Viscous lidocaine 2% solution, 100 mL, swish and spit/swallow 15 mL every 4 hours as needed for throat pain
+2. Work excuse note for 1 week, may extend if needed
+
+OVER-THE-COUNTER RECOMMENDATIONS:
+- Ibuprofen 400-600 mg every 6 hours PRN
+- Acetaminophen 650 mg every 6 hours PRN
+- Throat lozenges (Chloraseptic, Cepacol)
+- Electrolyte drinks
+
+Patient verbalized understanding of diagnosis, management plan, and activity restrictions. Particular emphasis placed on avoiding contact sports due to splenic rupture risk. Patient agreed to follow up in 1 week or sooner if concerning symptoms. Emergency precautions reviewed.
+
+Signed:
+Dr. James Park, DO
+Urgent Care Medicine

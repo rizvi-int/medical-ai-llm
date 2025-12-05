@@ -1,0 +1,211 @@
+SOAP Note — Encounter Date: 2024-09-22 (Psychiatric Evaluation - Initial Consultation)
+Patient: Jessica Morgan, DOB 1995-08-10 (29 years)
+
+S:
+Chief Complaint: "I can't focus at work and I'm always anxious. My doctor thinks I might have ADHD."
+
+HPI:
+Patient is a 29-year-old female presenting for psychiatric evaluation at the referral of her primary care physician. Reports lifelong difficulties with attention, organization, and completing tasks. States she has "always been like this" but symptoms have worsened significantly over the past year since starting new job as marketing manager.
+
+Describes difficulty sustaining attention during meetings, frequently losing items (keys, phone, wallet), forgetting deadlines despite using multiple reminder systems, and chronic procrastination. Reports hyperfocus on tasks of interest but inability to initiate or complete less interesting tasks. Describes "mental restlessness" and constant internal dialogue.
+
+Also endorses significant anxiety symptoms over past 2 years: excessive worry about work performance, health, and relationships. Reports physical symptoms including muscle tension, difficulty sleeping (initial insomnia, mind racing), fatigue, and occasional panic attacks (palpitations, shortness of breath, sense of doom) approximately 2-3 times per month, triggered by work stress.
+
+Mood: Describes mood as "frustrated and overwhelmed." Denies sustained periods of depression, but acknowledges occasional depressive episodes (1-2 weeks) when feeling like a "failure" due to ADHD symptoms. Denies anhedonia during these periods. No current suicidal ideation, no history of suicide attempts. No homicidal ideation.
+
+Sleep: Difficulty falling asleep (mind racing), sleep latency 1-2 hours. Awakens multiple times per night. Total sleep 5-6 hours/night. No nightmares or night terrors.
+
+Appetite: Normal, no significant weight changes. Eats regularly but often forgets meals when hyperfocused.
+
+Substance Use: Denies tobacco. Social alcohol use (1-2 glasses wine on weekends). Caffeine: 3-4 cups coffee daily (self-medicating for focus). Tried marijuana in college, occasional use now (1-2x/month for anxiety). Denies other illicit drug use.
+
+Developmental/Educational History:
+- Struggled in elementary school with "not paying attention" and "talking too much"
+- Never formally evaluated for ADHD as child (parents thought she was "just energetic")
+- Did well in subjects of interest (English, art) but struggled with math and science
+- College: Took 5 years to complete bachelor's degree due to difficulty with time management and organization
+- Multiple incomplete courses that had to be retaken
+- Never received academic accommodations
+
+Occupational History:
+- Held 5 different jobs in past 7 years (difficulty with organization and meeting deadlines led to performance issues)
+- Current job: Marketing manager for tech startup (high stress, fast-paced environment)
+- Has received feedback about missing deadlines and appearing "scattered"
+- Feels constantly overwhelmed and fears losing this job
+
+Relationship History:
+- Single, lives alone
+- Difficulty maintaining romantic relationships (partners complain she's "forgetful" and "doesn't listen")
+- Good social support from close friends and family
+
+PMH:
+- No major medical illnesses
+- No history of head trauma or seizures
+- Irregular menstrual cycles (under evaluation by gynecology)
+
+PSH: None
+
+Family Psychiatric History:
+- Father diagnosed with ADHD as adult
+- Mother with anxiety disorder on escitalopram
+- Brother with depression, treated with therapy
+- Maternal grandmother with bipolar disorder
+
+Medications: None currently
+Allergies: No known drug allergies
+
+Social:
+- Works full-time as marketing manager
+- Lives alone in apartment
+- No children
+- Exercise: Sporadic (enjoys yoga but struggles to maintain routine)
+- Diet: Irregular meal times, relies on convenience foods
+
+O:
+Vitals:
+- BP: 118/72 mmHg
+- HR: 78 bpm
+- Temp: 36.7°C
+- Weight: 62 kg, Height: 165 cm (BMI 22.8)
+
+General: Well-groomed, casually dressed, appears stated age, cooperative but fidgety during interview (foot tapping, playing with hair)
+
+Mental Status Examination:
+- Appearance: Appropriate dress and hygiene
+- Behavior: Restless motor activity, frequent shifts in position, good eye contact but occasionally distracted by noises outside office
+- Speech: Normal rate and volume, occasionally interrupts or goes off on tangents
+- Mood: "Frustrated and anxious"
+- Affect: Anxious, congruent with mood, full range
+- Thought Process: Circumstantial at times, easily derailed by tangential thoughts, no flight of ideas
+- Thought Content: Preoccupied with work performance and fear of failure. No delusions, no paranoia, no obsessions or compulsions beyond worry.
+- Perceptions: Denies auditory or visual hallucinations
+- Cognition: Alert and oriented x4 (person, place, time, situation), memory intact for recent and remote events, attention variable (difficulty with serial 7s - lost track after 3 subtractions)
+- Insight: Good - recognizes symptoms are problematic and seeks help
+- Judgment: Good - appropriate help-seeking behavior, safety-aware
+
+ADHD Rating Scale (Adult ADHD Self-Report Scale - ASRS):
+- Inattention symptoms: 8/9 criteria met (significant impairment)
+- Hyperactivity/Impulsivity symptoms: 5/9 criteria met (moderate impairment)
+- Onset: Symptoms present since childhood
+- Impairment: Significant impairment in occupational and social functioning
+
+GAD-7 (Generalized Anxiety Disorder Scale): Score 14/21 (moderate anxiety)
+PHQ-9 (Depression Screening): Score 8/27 (mild depression)
+
+Labs (ordered by PCP, reviewed):
+- TSH: 2.1 mIU/L (normal - rules out thyroid disorder)
+- CBC: Normal
+- CMP: Normal
+- Vitamin B12: 450 pg/mL (normal)
+- Vitamin D: 28 ng/mL (mildly low)
+
+A:
+1. **Attention-Deficit/Hyperactivity Disorder (ADHD), Combined Presentation, Moderate severity** (DSM-5 314.01)
+   - Meets criteria for inattention (8/9 symptoms) and hyperactivity/impulsivity (5/9 symptoms)
+   - Symptoms present since childhood with clear evidence of impairment in multiple settings
+   - No better explanation by another mental disorder
+
+2. **Generalized Anxiety Disorder, Moderate** (DSM-5 300.02)
+   - Excessive worry, difficulty controlling worry, multiple physical symptoms
+   - GAD-7 score 14 (moderate severity)
+   - Anxiety symptoms may be partially secondary to ADHD-related difficulties
+
+3. **Adjustment Disorder with Depressed Mood** (DSM-5 309.0)
+   - Mild depressive symptoms in context of work-related stress
+   - PHQ-9 score 8 (mild)
+   - Not meeting criteria for major depressive disorder
+
+4. **Caffeine use disorder, mild** (self-medicating for ADHD symptoms)
+
+5. **Cannabis use, occasional** (self-medicating for anxiety)
+
+P:
+PHARMACOLOGICAL MANAGEMENT:
+
+**ADHD Treatment:**
+- Start **Methylphenidate ER (Concerta) 18 mg once daily in the morning**
+  - Rationale: First-line stimulant medication for ADHD, lower abuse potential than immediate-release formulations
+  - Will titrate based on response and tolerability
+  - Plan to increase to 27 mg after 1 week if tolerated and insufficient response
+  - Target dose: 36-54 mg daily (will assess at follow-up)
+  - Counsel patient on potential side effects: decreased appetite, insomnia, increased heart rate, anxiety
+  - Advised to take in morning to avoid sleep interference
+  - Contraindications reviewed: no cardiac disease, no uncontrolled hypertension
+
+**Anxiety Management:**
+- Start **Escitalopram (Lexapro) 10 mg once daily**
+  - Rationale: SSRI for generalized anxiety disorder, may also help with depressive symptoms
+  - Monitor for initial worsening of anxiety (may occur in first 1-2 weeks)
+  - Full effect expected in 4-6 weeks
+  - Counsel on side effects: nausea, headache, sexual dysfunction, activation
+  - Advised not to discontinue abruptly
+
+- **Avoid benzodiazepines** - High risk for dependence, not appropriate for long-term GAD management
+
+**Vitamin D Supplementation:**
+- Vitamin D3 2000 IU daily (low levels may contribute to mood symptoms)
+
+NON-PHARMACOLOGICAL INTERVENTIONS:
+
+**Psychotherapy:**
+- Referral to psychologist for **Cognitive Behavioral Therapy (CBT)** focusing on:
+  - ADHD coping strategies (organization, time management, task initiation)
+  - Anxiety management (cognitive restructuring, exposure techniques)
+  - Mindfulness-based stress reduction
+
+**ADHD Coaching:**
+- Consider ADHD coaching for workplace accommodations and organizational strategies
+- Will provide letter for workplace accommodations if needed (extended deadlines, written instructions, quiet workspace)
+
+**Lifestyle Modifications:**
+- **Sleep hygiene:** Set consistent sleep schedule, limit caffeine after 2 PM, no screens 1 hour before bed
+- **Exercise:** Recommend 30 minutes moderate exercise 5x/week (helps with ADHD symptoms and anxiety)
+- **Nutrition:** Regular meal times, balanced diet, limit processed foods
+- **Reduce caffeine intake** gradually to 1-2 cups daily (excessive caffeine may worsen anxiety)
+- **Limit cannabis use** - May interfere with ADHD medication and worsen motivation
+
+MONITORING:
+
+**Follow-up Schedule:**
+- Return in 2 weeks for medication titration and side effect monitoring
+- Monthly visits for first 3 months to optimize medication regimen
+- Then every 3 months for stable maintenance
+
+**Safety Monitoring:**
+- Baseline EKG (ordered today, due to stimulant initiation in patient with mild tachycardia)
+- Blood pressure and heart rate at each visit while titrating stimulant
+- Screen for suicidal ideation at each visit (SSRI black box warning in young adults)
+- Monitor for stimulant misuse/diversion
+
+**Rating Scales:**
+- Repeat ASRS, GAD-7, and PHQ-9 at each follow-up to track symptom improvement
+
+PATIENT EDUCATION:
+- Discussed diagnosis of ADHD and GAD, validated patient's lifelong struggles
+- Explained neurobiology of ADHD (dopamine/norepinephrine dysregulation)
+- Reviewed medication mechanism of action and expected timeline for improvement
+- Stimulant effects: May notice improvement in focus/attention within days
+- SSRI effects: May take 4-6 weeks for full anxiety reduction
+- Provided educational handouts on ADHD and GAD
+- Discussed importance of medication adherence and psychotherapy
+- Safety counseling: No alcohol with medications, report any mood changes or suicidal thoughts immediately
+
+REFERRALS:
+- Psychology for CBT (provided 3 referrals)
+- ADHD coach (optional, provided resources)
+- Consider neuropsychological testing if inadequate response to treatment (formal ADHD confirmation)
+
+PRESCRIPTIONS:
+1. Methylphenidate ER 18 mg #30, take 1 tablet by mouth every morning, 0 refills (controlled substance)
+2. Escitalopram 10 mg #30, take 1 tablet by mouth daily, 3 refills
+3. Vitamin D3 2000 IU #90, take 1 capsule daily, PRN refills
+
+Patient verbalized understanding of diagnosis, treatment plan, and safety precautions. Questions answered. Patient agrees to treatment plan. Will return in 2 weeks or sooner if concerns arise. Emergency contact information provided.
+
+RISK ASSESSMENT:
+- Current suicide risk: LOW (no current SI, good insight, good social support, engaged in treatment)
+- Will monitor closely given SSRI initiation in young adult
+
+Signed:
+Dr. Michael Torres, MD
+Psychiatry

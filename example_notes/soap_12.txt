@@ -1,0 +1,273 @@
+SOAP Note — Encounter Date: 2024-08-28 (Endocrinology - Type 2 Diabetes Management)
+Patient: David Thompson, DOB 1972-11-03 (51 years)
+
+S:
+Patient returns to endocrinology clinic for follow-up of Type 2 diabetes mellitus and diabetic complications. Diagnosed with diabetes 8 years ago, initially managed with lifestyle modifications and metformin, but A1c has been suboptimal (>8%) over past 2 years despite escalating therapy.
+
+Current diabetes regimen: Metformin 1000 mg BID, Empagliflozin 25 mg daily, Insulin glargine (Lantus) 40 units at bedtime. Patient reports good adherence to medications. Checking blood glucose 2x daily (fasting and before dinner).
+
+Recent glucose log (past 2 weeks):
+- Fasting: 140-180 mg/dL (goal <130)
+- Pre-dinner: 180-220 mg/dL (goal <180)
+No severe hypoglycemic episodes. Occasional mild hypoglycemia (glucose 65-70 mg/dL) in late afternoon, treated with snack.
+
+Reports 15 lb weight loss over past 3 months since starting empagliflozin (patient pleased with this). Following diabetic diet "most of the time" but admits to occasional fast food. Exercises 2-3x/week (walking 30 minutes). Denies polyuria, polydipsia, or polyphagia.
+
+DIABETIC COMPLICATIONS REVIEW:
+- **Eyes**: Seeing ophthalmologist regularly. Last dilated eye exam 2 months ago showed mild nonproliferative diabetic retinopathy, no macular edema.
+- **Kidneys**: Aware of chronic kidney disease. No symptoms. Urinates normally, no foamy urine.
+- **Neuropathy**: Reports numbness and tingling in both feet (stocking distribution) for past year. Worse at night. Denies foot ulcers or injuries. Checks feet daily.
+- **Cardiovascular**: Denies chest pain, shortness of breath, orthopnea, or PND. No claudication.
+
+PMH:
+- Type 2 Diabetes Mellitus (diagnosed 2016)
+- Diabetic peripheral neuropathy
+- Diabetic nephropathy (CKD Stage 3a)
+- Mild nonproliferative diabetic retinopathy
+- Hypertension (diagnosed 2014)
+- Hyperlipidemia
+- Obesity (BMI 32)
+- Obstructive sleep apnea (on CPAP)
+
+PSH: None
+
+Current Medications:
+1. Metformin 1000 mg BID
+2. Empagliflozin 25 mg daily
+3. Insulin glargine 40 units subcutaneous at bedtime
+4. Lisinopril 20 mg daily (kidney protection, hypertension)
+5. Atorvastatin 40 mg at bedtime
+6. Aspirin 81 mg daily
+7. Gabapentin 300 mg TID (for neuropathic pain)
+
+Allergies: No known drug allergies
+
+Social:
+- Married, lives with wife and 2 teenage children
+- Works as truck driver (sedentary occupation, irregular meal schedule)
+- Non-smoker (quit 5 years ago, 15 pack-year history)
+- No alcohol use
+- Uses CPAP nightly for sleep apnea
+
+Family Hx:
+- Mother: Type 2 diabetes, died of MI at age 68
+- Father: Hypertension, alive at age 78
+- Brother: Type 2 diabetes diagnosed at age 45
+
+O:
+Vitals:
+- BP: 132/84 mmHg (goal <130/80)
+- HR: 76 bpm
+- Weight: 98 kg (down from 105 kg 3 months ago)
+- Height: 178 cm
+- BMI: 30.9 (down from 33.2)
+- Temp: 36.8°C
+
+General: Obese middle-aged male, alert, cooperative, no acute distress
+
+HEENT: No retinopathy visible on non-dilated exam (last dilated exam by ophthalmology 2 months ago)
+
+Neck: No thyromegaly, no JVD, no carotid bruits
+
+CV: Regular rate and rhythm, normal S1/S2, no murmurs, no peripheral edema
+
+Lungs: Clear to auscultation bilaterally
+
+Abd: Obese, soft, non-tender, no hepatosplenomegaly
+
+Extremities: No edema, peripheral pulses 2+ bilaterally (dorsalis pedis, posterior tibial)
+
+DIABETIC FOOT EXAM:
+- Inspection: No ulcers, calluses, or deformities. Skin intact, no signs of infection.
+- Monofilament test: Decreased sensation bilaterally (unable to feel 10g monofilament on plantar surface of great toes and metatarsal heads) - consistent with peripheral neuropathy
+- Vibration sense: Decreased at great toes bilaterally (128 Hz tuning fork)
+- Ankle reflexes: Absent bilaterally
+- Proprioception: Intact
+
+Skin: Acanthosis nigricans on neck (sign of insulin resistance)
+
+Labs (drawn 1 week ago):
+
+**Glycemic Control:**
+- Hemoglobin A1c: 8.4% (goal <7%, previous 3 months ago: 8.7%)
+- Fasting glucose: 165 mg/dL
+
+**Kidney Function:**
+- Creatinine: 1.3 mg/dL (stable)
+- eGFR: 58 mL/min/1.73m² (CKD Stage 3a, stable)
+- Urine albumin-to-creatinine ratio: 85 mg/g (microalbuminuria, indicates diabetic nephropathy)
+- BUN: 22 mg/dL
+
+**Lipid Panel:**
+- Total cholesterol: 178 mg/dL
+- LDL: 95 mg/dL (goal <70 for diabetic patient with CKD)
+- HDL: 42 mg/dL (low, goal >40)
+- Triglycerides: 205 mg/dL (elevated, goal <150)
+
+**Other:**
+- TSH: 2.8 mIU/L (normal)
+- Vitamin B12: 520 pg/mL (normal, important on metformin)
+- Liver function tests: Normal
+- Potassium: 4.5 mEq/L (normal, important on ACE inhibitor)
+
+A:
+1. **Type 2 Diabetes Mellitus, inadequately controlled** (A1c 8.4%, above goal of <7%)
+2. **Diabetic peripheral neuropathy, symptomatic** (numbness, tingling, decreased sensation on exam)
+3. **Diabetic nephropathy with microalbuminuria** (CKD Stage 3a, albumin-to-creatinine ratio 85 mg/g)
+4. **Mild nonproliferative diabetic retinopathy, stable** (per ophthalmology)
+5. **Hypertension, borderline controlled** (BP 132/84, goal <130/80)
+6. **Hyperlipidemia, suboptimal control** (LDL 95, goal <70; triglycerides 205, goal <150)
+7. **Obesity** (BMI 30.9, improved from 33.2)
+8. **Obstructive sleep apnea, treated with CPAP**
+
+P:
+DIABETES MANAGEMENT - INTENSIFY THERAPY:
+
+**Insulin Adjustment:**
+- **Increase Insulin glargine from 40 units to 50 units at bedtime**
+  - Rationale: Fasting glucose consistently 140-180 (goal <130)
+  - Will reassess in 2 weeks based on glucose log
+  - Further titration may be needed
+
+**Add GLP-1 Receptor Agonist:**
+- **Start Semaglutide (Ozempic) 0.25 mg subcutaneous once weekly**
+  - Rationale: A1c >8% on basal insulin + metformin, need additional glucose lowering
+  - GLP-1 agonists provide A1c reduction of 1-1.5%, weight loss benefit, cardiovascular protection
+  - Titration schedule: 0.25 mg weekly x 4 weeks, then increase to 0.5 mg weekly
+  - May increase to 1 mg weekly after 4 weeks at 0.5 mg if needed and tolerated
+  - Counsel on side effects: Nausea (usually transient), diarrhea, risk of pancreatitis (rare)
+  - Inject on same day each week, can be any day (patient chose Sundays)
+  - Provided injection training, patient demonstrated correct technique
+
+**Continue Current Medications:**
+- Metformin 1000 mg BID
+- Empagliflozin 25 mg daily (SGLT2 inhibitor for renal protection and additional glucose lowering)
+
+**Target Goals:**
+- A1c <7%
+- Fasting glucose 80-130 mg/dL
+- Pre-meal glucose <180 mg/dL
+
+DIABETIC NEUROPATHY MANAGEMENT:
+
+**Pain Control:**
+- **Increase Gabapentin from 300 mg TID to 600 mg TID**
+  - Current dose insufficient for symptom control
+  - Titrate up slowly to minimize dizziness/sedation
+  - Schedule: 300 mg in AM, 300 mg at noon, 600 mg at bedtime x 1 week
+  - Then increase to 600 mg TID if tolerated
+  - Maximum dose 3600 mg/day (may further increase if needed)
+
+**Alternative if Gabapentin Insufficient:**
+- Consider adding Duloxetine 30-60 mg daily (dual mechanism for neuropathic pain)
+- Will reassess at next visit
+
+**Foot Care Education:**
+- Daily foot inspection (check for cuts, blisters, redness)
+- Moisturize feet daily (but not between toes)
+- Wear properly fitting shoes, avoid walking barefoot
+- Trim toenails carefully or see podiatrist
+- Report any wounds/injuries immediately
+- Annual comprehensive foot exam by podiatrist (referral placed)
+
+DIABETIC NEPHROPATHY MANAGEMENT:
+
+**Blood Pressure Control:**
+- **Continue Lisinopril 20 mg daily** (ACE inhibitor provides renal protection)
+- Goal BP <130/80 for diabetic with CKD
+- Monitor potassium and creatinine
+
+**Kidney Protection:**
+- Continue Empagliflozin (SGLT2 inhibitor shown to slow CKD progression in diabetes)
+- Monitor eGFR every 6 months
+- Urine albumin-to-creatinine ratio every 6 months
+- Avoid nephrotoxic medications (NSAIDs, IV contrast without pre-hydration)
+
+LIPID MANAGEMENT:
+
+**Intensify Statin:**
+- **Increase Atorvastatin from 40 mg to 80 mg at bedtime**
+  - Goal LDL <70 mg/dL for diabetic with CKD (ASCVD risk equivalent)
+  - Current LDL 95 mg/dL
+  - Recheck lipid panel in 3 months
+
+**Triglyceride Management:**
+- Triglycerides 205 mg/dL (elevated)
+- Address with improved glucose control, weight loss, diet modification
+- If remains >200 after glucose control improved, consider adding Icosapent ethyl (Vascepa)
+
+CARDIOVASCULAR RISK REDUCTION:
+
+- **Continue Aspirin 81 mg daily** (primary prevention in diabetic with additional risk factors)
+- ASCVD 10-year risk: 18.5% (elevated)
+- Encouraged smoking cessation (quit 5 years ago, congratulated patient)
+- Continue CPAP for sleep apnea (untreated OSA increases CV risk)
+
+DIABETIC RETINOPATHY MONITORING:
+
+- Continue annual dilated eye exams with ophthalmology
+- Next exam due in 10 months
+- Reinforce importance of glucose control to prevent progression
+
+LIFESTYLE MODIFICATIONS:
+
+**Diet:**
+- Referral to certified diabetes educator (CDE) for medical nutrition therapy
+- Emphasize: Low glycemic index carbs, portion control, meal timing regularity (challenging with truck driving job)
+- Limit saturated fat and sodium
+- Increase fiber intake
+
+**Exercise:**
+- Goal: 150 minutes moderate-intensity aerobic exercise per week
+- Current: 60-90 min/week (walking)
+- Encourage increase to 30 minutes daily
+- Discuss strategies for exercise during long truck drives (rest stop walks, resistance bands in cab)
+
+**Weight Loss:**
+- Excellent progress with 15 lb loss
+- Goal: Additional 10-15 lb weight loss (target BMI <30)
+- GLP-1 agonist (semaglutide) will help with appetite suppression and weight loss
+
+PATIENT EDUCATION:
+
+- Reviewed diabetes complications and importance of tight glucose control
+- Discussed hypoglycemia recognition and treatment (15-15 rule: 15g fast-acting carbs, recheck in 15 min)
+- Provided glucose tablets and instructed to carry at all times
+- Encouraged consistent glucose monitoring (fasting and pre-dinner)
+- Consider continuous glucose monitor (CGM) if willing - will discuss at next visit
+- Sick day management reviewed (maintain hydration, monitor glucose more frequently, call if unable to eat or glucose >300)
+
+VACCINATIONS:
+
+- Influenza vaccine - due in October (will administer at next visit)
+- Pneumococcal vaccines up to date (PPSV23 given 2020)
+- COVID-19 booster recommended (patient to follow up with PCP)
+
+FOLLOW-UP:
+
+**Next Appointments:**
+- Return to endocrinology in **3 months** for A1c recheck and medication adjustment
+- Labs prior to visit: A1c, CMP, lipid panel, urine albumin-to-creatinine ratio
+- Bring glucose log to all visits
+
+**Between-Visit Monitoring:**
+- Call in 2 weeks with fasting glucose readings after insulin increase
+- Report any hypoglycemia (glucose <70), nausea from GLP-1 agonist, or foot injuries immediately
+
+**Referrals:**
+- Certified diabetes educator (CDE) - urgent referral for nutrition counseling
+- Podiatry - annual comprehensive foot exam
+- Ophthalmology - continue annual follow-up (already established)
+
+PRESCRIPTIONS:
+1. Insulin glargine (Lantus) 100 units/mL, inject 50 units subcutaneously at bedtime, #2 vials, 3 refills
+2. Semaglutide (Ozempic) 0.25 mg/0.5 mL, inject 0.25 mg subcutaneously once weekly, #1 pen, 1 refill (then will increase dose)
+3. Gabapentin 600 mg, take 1 capsule three times daily (titrate as directed), #180 caps, 3 refills
+4. Atorvastatin 80 mg, take 1 tablet by mouth at bedtime, #90 tablets, 3 refills
+5. Continue all other medications as prescribed
+
+Patient verbalized understanding of treatment intensification, injection technique for semaglutide, and importance of glucose monitoring. Questions answered. Motivated to improve glucose control to prevent further complications.
+
+Signed:
+Dr. Rachel Kim, MD, FACE
+Endocrinology, Diabetes, and Metabolism

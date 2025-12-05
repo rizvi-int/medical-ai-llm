@@ -1,0 +1,72 @@
+SOAP Note — Encounter Date: 2024-08-14 (Emergency Department Visit)
+Patient: Michael Rodriguez, DOB 1975-03-22 (49 y/o male)
+
+S:
+Pt presents to ED via EMS with sudden onset severe substernal chest pain radiating to left arm and jaw, started approximately 2 hours ago while at rest. Associated symptoms include diaphoresis, nausea, and shortness of breath. Denies prior episodes of similar chest pain.
+
+PMH: Type 2 Diabetes Mellitus (diagnosed 2018), Hypertension (diagnosed 2015), Hyperlipidemia (diagnosed 2016), former smoker (quit 2020, 30 pack-year history). Family history significant for father with MI at age 52.
+
+Current medications: Metformin 1000mg BID, Lisinopril 20mg daily, Atorvastatin 40mg nightly, Aspirin 81mg daily.
+
+O:
+Vitals: BP 165/98 mmHg, HR 102 bpm (regular), RR 22/min, Temp 37.1°C, SpO2 94% on room air
+Appearance: Anxious, diaphoretic, in moderate distress
+CV: Tachycardic, regular rhythm, no murmurs, rubs, or gallops appreciated
+Resp: Tachypneic, lungs clear to auscultation bilaterally
+Abd: Soft, non-tender, non-distended
+
+Labs:
+- Troponin I: 2.8 ng/mL (elevated, normal <0.04)
+- CK-MB: 45 U/L (elevated)
+- BNP: 280 pg/mL
+- D-dimer: 220 ng/mL (normal <500)
+- CBC: WBC 11.2, Hgb 14.5, Plt 245
+- BMP: Na 138, K 4.2, Cl 102, CO2 24, BUN 18, Cr 1.1, Glucose 178
+- Lipid panel: Total cholesterol 245, LDL 165, HDL 38, Triglycerides 210
+
+EKG: ST-segment elevation in leads II, III, aVF consistent with inferior wall STEMI
+
+A:
+1. ST-Elevation Myocardial Infarction (STEMI), inferior wall - ACUTE
+2. Type 2 Diabetes Mellitus with hyperglycemia
+3. Hypertension, currently uncontrolled
+4. Hyperlipidemia, suboptimally controlled
+
+P:
+IMMEDIATE:
+- STEMI alert activated, cardiology consulted
+- Aspirin 325mg PO given in ED
+- Clopidogrel 600mg loading dose administered
+- Heparin IV bolus 5000 units, then continuous infusion
+- Nitroglycerin sublingual 0.4mg x 3 doses for chest pain
+- Morphine 4mg IV for pain/anxiety
+- Oxygen supplementation via nasal cannula to maintain SpO2 >94%
+- Transfer to cardiac catheterization lab for emergent PCI
+
+Cardiac cath findings: 95% occlusion of RCA, successful placement of drug-eluting stent
+
+Post-procedure plan:
+- Admit to CCU for monitoring
+- Continue dual antiplatelet therapy: Aspirin 81mg + Ticagrelor 90mg BID
+- Increase Atorvastatin to 80mg daily
+- Add Metoprolol 25mg BID
+- Cardiac rehabilitation referral
+- Strict diabetic diet, target glucose <180
+- Smoking cessation counseling (maintain abstinence)
+- Outpatient cardiology follow-up in 1 week
+- Repeat lipid panel in 6 weeks, target LDL <70
+
+MEDICATIONS PRESCRIBED:
+1. Aspirin 81mg, 1 tab PO daily (indefinite)
+2. Ticagrelor 90mg, 1 tab PO BID x 12 months minimum
+3. Atorvastatin 80mg, 1 tab PO nightly
+4. Metoprolol tartrate 25mg, 1 tab PO BID
+5. Continue Metformin 1000mg BID
+6. Continue Lisinopril 20mg daily
+7. Nitroglycerin 0.4mg sublingual PRN chest pain
+
+Prognosis discussed with patient and family. Importance of medication compliance, cardiac rehabilitation, lifestyle modifications, and close follow-up emphasized.
+
+Signed:
+Dr. Jennifer Kim, MD
+Emergency Medicine / Cardiology Service

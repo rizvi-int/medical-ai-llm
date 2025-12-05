@@ -1,0 +1,268 @@
+SOAP Note — Encounter Date: 2024-09-05 (Post-Operative Follow-Up - Orthopedic Surgery)
+Patient: Marcus Johnson, DOB 1985-02-20 (39 years)
+
+S:
+Patient presents for 2-week post-operative follow-up after right knee anterior cruciate ligament (ACL) reconstruction with hamstring autograft performed on 2024-08-22 (14 days ago). Surgery was performed by Dr. Steven Martinez, orthopedic surgeon.
+
+Patient reports overall recovery is going well. Pain has improved significantly since surgery, currently rates pain as 3/10 at rest and 5/10 with physical therapy exercises. Pain well-controlled with current medication regimen. Denies severe pain, numbness, or tingling in the leg.
+
+KNEE SYMPTOMS:
+- Swelling: Moderate swelling around knee, improved compared to first week post-op
+- Range of Motion: Currently achieving 0-90 degrees flexion (goal 0-120 by 6 weeks)
+- Strength: Quad muscle "feels weak" but improving with exercises
+- Stability: Knee feels stable with brace on, hasn't tried walking without brace yet
+- Incision: No drainage, no signs of infection per patient
+
+FUNCTIONAL STATUS:
+- Ambulation: Walking with crutches (weight-bearing as tolerated per protocol), using knee brace locked in extension
+- ADLs: Independent with most activities, some difficulty with stairs (goes up/down one step at a time)
+- Sleep: Sleeping better, able to find comfortable positions with knee elevated
+
+PHYSICAL THERAPY:
+- Started PT 3 days post-op, attending 3x/week
+- Performing home exercises daily: quad sets, straight leg raises, ankle pumps, heel slides
+- Compliant with therapy program
+
+MEDICATIONS:
+- Taking oxycodone 5 mg 1-2 tablets every 6 hours as needed (currently using ~3 times/day, down from 4-5 times/day last week)
+- Aspirin 325 mg twice daily for DVT prophylaxis (as prescribed)
+- Docusate sodium 100 mg twice daily (stool softener)
+
+Denies fever, chills, night sweats, calf pain, shortness of breath, or chest pain. No nausea, vomiting, or constipation.
+
+INJURY HISTORY (from prior notes):
+- Injury occurred 2 months ago during recreational basketball game (non-contact pivot injury)
+- Heard/felt "pop" in right knee, immediate swelling and instability
+- MRI confirmed complete ACL tear, small medial meniscus tear (repaired during surgery)
+
+PMH: Otherwise healthy, no chronic medical conditions
+PSH: Appendectomy (2008), Right ACL reconstruction (current, 2024-08-22)
+Medications: As listed above (post-op medications)
+Allergies: No known drug allergies
+
+Social:
+- Married, lives with wife and 8-year-old son
+- Works as software engineer (desk job, currently working from home)
+- Former college basketball player, remains very active (basketball, running, cycling)
+- Non-smoker, occasional alcohol, no illicit drugs
+
+Family Hx: Father with osteoarthritis, otherwise noncontributory
+
+SURGICAL DETAILS (from operative report):
+- Procedure: Right knee ACL reconstruction with hamstring autograft (semitendinosus and gracilis tendons)
+- Additional: Medial meniscus posterior horn repair (inside-out technique, 2 sutures)
+- Anesthesia: General + femoral nerve block
+- EBL: Minimal
+- Complications: None
+- Hardware: Bioabsorbable interference screws (femoral and tibial tunnels)
+
+O:
+Vitals:
+- BP: 128/78 mmHg
+- HR: 72 bpm
+- Temp: 36.8°C (afebrile - important, rules out infection)
+- Weight: 88 kg
+- O2 saturation: 98% on room air
+
+General: Well-appearing male, ambulating with crutches and knee brace, no acute distress
+
+RIGHT KNEE EXAMINATION:
+
+**Inspection:**
+- **Moderate effusion (swelling)** present, decreased compared to 1-week post-op visit
+- **4 arthroscopic portal incisions** (anteromedial, anterolateral, superolateral, medial for meniscus repair) - all well-healed, no erythema, no drainage
+- **Vertical incision over pes anserinus** (hamstring harvest site, ~4 cm) - well-healed with steri-strips in place, no signs of infection
+- No ecchymosis (bruising minimal and resolving)
+- Mild quadriceps atrophy compared to left leg (expected post-op)
+
+**Palpation:**
+- No warmth over joint or incisions
+- Non-tender along incisions
+- Mild tenderness with palpation of joint line (medially > laterally, likely related to meniscus repair)
+- No palpable fluid wave (effusion moderate but not tense)
+
+**Range of Motion (ROM):**
+- Extension: 0 degrees (full extension achieved - EXCELLENT)
+- Flexion: 95 degrees (actively), 100 degrees (passively with gentle overpressure)
+- Goal by 2 weeks: 0-90 degrees - **GOAL MET AND EXCEEDED**
+- No pain with ROM, just tightness at end range
+
+**Strength:**
+- Quadriceps: 3/5 strength (can perform straight leg raise with good quad contraction, no extensor lag)
+- Hamstring: 4/5 strength (limited by graft harvest site)
+- Ankle dorsiflexion/plantarflexion: 5/5
+
+**Special Tests:**
+- Lachman test: Not performed (too early post-op to stress graft)
+- Anterior drawer: Not performed (too early post-op)
+- Patellofemoral tracking: Normal, no crepitus
+
+**Neurovascular:**
+- Sensation intact in saphenous nerve distribution (medial leg/foot - at risk with medial meniscus repair)
+- Dorsalis pedis pulse 2+ (normal)
+- Capillary refill <2 seconds
+- No calf tenderness, negative Homan's sign (low concern for DVT)
+
+LEFT KNEE (comparison): No swelling, full ROM, 5/5 strength, stable
+
+GAIT:
+- Ambulating with bilateral axillary crutches
+- Weight-bearing as tolerated on right leg with knee brace locked in extension
+- Gait pattern: Step-to gait, appropriate use of crutches
+- No antalgic gait when bearing weight
+
+X-rays (taken today - 2 weeks post-op):
+- AP and lateral views of right knee
+- **ACL femoral and tibial tunnel placement: Excellent position, anatomic**
+- **Bioabsorbable interference screws well-seated**
+- No fracture, no hardware complication
+- Joint space preserved
+- Small joint effusion visible (consistent with exam)
+
+A:
+1. **Status post right knee ACL reconstruction with hamstring autograft, 14 days post-op - EXCELLENT early recovery**
+   - Surgical site healing well, no signs of infection
+   - ROM exceeds 2-week goal (0-95 degrees active, goal was 0-90)
+   - Appropriate post-op swelling and pain, both improving
+   - X-rays show excellent graft tunnel placement and hardware position
+
+2. **Status post medial meniscus repair** (posterior horn, inside-out technique)
+   - Healing well, mild tenderness expected
+   - Following meniscus repair protocol (protected weight-bearing)
+
+3. **Post-operative pain, well-controlled with oral opioids** (decreasing usage, appropriate for 2 weeks post-op)
+
+4. **Quadriceps atrophy, mild** (expected after knee surgery, improving with PT)
+
+5. **No evidence of post-operative complications**:
+   - No infection (afebrile, no erythema/drainage at incisions, normal WBC - not checked today but no clinical concern)
+   - No DVT (no calf pain/swelling, negative Homan's, on aspirin prophylaxis)
+   - No graft failure or hardware complication
+   - No neurovascular compromise
+
+P:
+POST-OPERATIVE REHABILITATION PLAN:
+
+**Current Phase: Phase 1 (Weeks 0-4) - Protect Graft, Restore ROM and Quad Function**
+
+**Weight-Bearing:**
+- Continue **weight-bearing as tolerated with crutches**
+- May wean off crutches over next 1-2 weeks as quadriceps strength and gait normalize (no limp)
+- **Continue knee brace locked in extension for ambulation** until quad strength improves (able to perform straight leg raise without extensor lag)
+- May unlock brace for sitting and sleeping
+
+**Range of Motion Goals:**
+- **Excellent progress** - already at 95 degrees flexion (ahead of schedule)
+- Goal by 4 weeks post-op: 0-120 degrees
+- Continue ROM exercises: heel slides, prone hangs, wall slides
+- May begin stationary bike (high seat, no resistance) when ROM reaches 110 degrees
+
+**Strengthening:**
+- Continue current exercises: quad sets, straight leg raises, ankle pumps
+- Add: standing hamstring curls, mini squats (0-45 degrees), heel raises
+- Emphasis on quadriceps activation and reducing atrophy
+- No resistance exercises for hamstring (protect graft donor site for first 6 weeks)
+
+**Physical Therapy:**
+- Continue PT 3x/week
+- Good progress noted by therapist
+- Will advance to Phase 2 exercises at 4 weeks post-op
+
+**PAIN MANAGEMENT:**
+
+- **Wean opioid medication** (currently taking oxycodone ~3 times/day, appropriate reduction)
+- Plan to transition to non-opioid pain management:
+  - **Ibuprofen 600 mg every 6-8 hours with food** (start now, alternate with remaining oxycodone)
+  - **Acetaminophen 650 mg every 6 hours** (can use in combination with ibuprofen)
+  - **Oxycodone 5 mg PRN for breakthrough pain** (use sparingly, goal to discontinue by 3-4 weeks post-op)
+  - Refill: Oxycodone 5 mg #15 tablets (NO further refills - patient should transition to NSAIDs)
+
+**DVT PROPHYLAXIS:**
+
+- **Continue aspirin 325 mg twice daily for total of 4 weeks post-op** (2 more weeks)
+- Low risk for DVT given young age, mobile, no other risk factors
+- Encourage ankle pumps and ambulation
+
+**MENISCUS REPAIR PROTOCOL (Important - affects rehab timeline):**
+
+- Due to meniscus repair, must follow more conservative protocol than isolated ACL reconstruction
+- **Protected weight-bearing for 6 weeks total** (continue current protocol)
+- **No squatting beyond 90 degrees for 3 months** (protects meniscus repair)
+- **No running until 4 months post-op** (vs. 3 months for isolated ACL)
+- Meniscus repair increases long-term success if it heals properly
+
+**INCISION CARE:**
+
+- **Remove steri-strips at 3 weeks post-op** (next week) if not already fallen off
+- May shower normally (already cleared at 1-week visit)
+- No submersion in water (bath, pool, hot tub) until 4 weeks post-op
+- Apply silicone scar gel to incisions starting at 3 weeks to minimize scarring (optional, cosmetic)
+
+**RETURN TO ACTIVITY TIMELINE:**
+
+Given meniscus repair, timeline is extended compared to isolated ACL reconstruction:
+
+- **Weeks 4-12:** Phase 2 - Restore normal gait, increase strength, begin proprioceptive training
+  - Wean off brace and crutches
+  - Progress to full weight-bearing
+  - Increase ROM to full (0-135+ degrees)
+  - Advance strengthening (leg press, step-ups, lunges)
+
+- **Months 3-6:** Phase 3 - Advanced strengthening, sport-specific training
+  - Begin running program at 4 months (if cleared)
+  - Agility drills, plyometrics starting at 4-5 months
+
+- **Months 6-9:** Phase 4 - Return to sport
+  - Return to sport-specific training at 6 months if criteria met:
+    - Full ROM
+    - >85% strength compared to uninvolved leg
+    - Pass functional tests (hop tests, agility tests)
+  - Full return to basketball at 9-12 months (conservative timeline due to meniscus repair and basketball's high demands)
+
+**FOLLOW-UP SCHEDULE:**
+
+- **Next visit: 6 weeks post-op** (4 weeks from today)
+  - Will reassess ROM, strength, gait
+  - Transition to Phase 2 rehabilitation
+  - Recheck X-rays to assess graft tunnel healing (standard protocol)
+
+- **Subsequent visits:** 12 weeks, 6 months, 1 year
+
+**RED FLAGS - Patient instructed to call or go to ED if:**
+- Fever >101°F (concern for infection)
+- Increasing redness, warmth, drainage from incisions
+- Severe pain not controlled with medication
+- Calf pain, swelling, warmth (DVT concern)
+- Chest pain or shortness of breath (PE concern - rare but serious)
+- Sudden giving way or instability of knee (graft failure - very rare)
+
+PATIENT EDUCATION:
+
+- Congratulated patient on excellent early recovery and ROM progress
+- Reviewed extended timeline due to meniscus repair (9-12 months to basketball vs. 6-9 for isolated ACL)
+- Emphasized importance of:
+  - Continued PT compliance
+  - Not rushing return to sport (graft needs time to mature, typically takes 12+ months for full strength)
+  - Proper biomechanics and landing technique when returns to sport (reduce re-tear risk)
+- Discussed that ACL graft failure rate is ~5-10%, lower in older athletes and with proper rehab
+- Encouraged patience - this is a marathon, not a sprint
+
+PRESCRIPTIONS:
+1. Oxycodone 5 mg #15 tablets, take 1-2 tablets every 6 hours as needed for pain, NO REFILLS
+2. Aspirin 325 mg #42 tablets, take 1 tablet twice daily, continue for 2 more weeks (DVT prophylaxis)
+
+OVER-THE-COUNTER:
+- Ibuprofen 600 mg every 6-8 hours with food
+- Acetaminophen 650 mg every 6 hours
+
+DURABLE MEDICAL EQUIPMENT:
+- Continue use of knee brace (DonJoy or equivalent) locked in extension for ambulation
+- May discontinue crutches when able to walk without limp and perform straight leg raise without extensor lag (likely 1-2 weeks)
+
+Physical Therapy: Continue current plan, 3x/week, advancing per protocol
+
+Patient verbalized understanding of rehabilitation timeline, activity restrictions, and warning signs. Questions answered. Motivated and compliant with therapy. Prognosis for full recovery and return to basketball is excellent.
+
+Signed:
+Dr. Steven Martinez, MD
+Orthopedic Surgery, Sports Medicine

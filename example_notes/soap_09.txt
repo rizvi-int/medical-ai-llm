@@ -1,0 +1,98 @@
+SOAP Note — Encounter Date: 2024-08-20 (High-Risk Obstetrics Visit)
+Patient: Maria Rodriguez, DOB 1988-03-22 (36 years)
+
+S:
+Patient presents for routine prenatal visit at 28 weeks gestation (G3P2002). This is a high-risk pregnancy due to advanced maternal age, gestational diabetes mellitus (GDM), and history of preeclampsia in previous pregnancy. Patient reports good fetal movement, no vaginal bleeding, no leakage of fluid. Complains of mild lower back pain and occasional headaches. Denies vision changes, severe headaches, or upper abdominal pain.
+
+Currently managing GDM with diet modification and checking blood glucose 4 times daily. Reports fasting glucose 85-95 mg/dL, postprandial glucose 110-130 mg/dL. Following diabetic diet prescribed by nutritionist. Taking prenatal vitamins daily. No nausea, vomiting, or contractions.
+
+PMH:
+- G3P2002 (2 previous full-term vaginal deliveries, both healthy)
+- Preeclampsia in 2nd pregnancy (2018), managed with close monitoring
+- Gestational diabetes diagnosed at 24 weeks this pregnancy
+- No chronic medical conditions outside pregnancy
+Medications: Prenatal vitamin (with iron and folic acid), baby aspirin 81mg daily (started at 12 weeks for preeclampsia prevention)
+Allergies: No known drug allergies
+Social: Married, lives with husband and 2 children (ages 6 and 4). Works as elementary school teacher. Non-smoker, no alcohol use during pregnancy.
+Family Hx: Mother with Type 2 diabetes, sister with gestational diabetes in pregnancy
+
+O:
+Vitals:
+- BP: 128/82 mmHg (baseline BP 110/70 in first trimester)
+- HR: 82 bpm
+- Weight: 73.2 kg (pre-pregnancy weight 65 kg, total weight gain 8.2 kg)
+- Temp: 36.9°C
+- Fundal height: 28 cm (appropriate for gestational age)
+
+General: Alert, cooperative, appears well
+HEENT: No facial edema, no visual disturbances
+Neck: No thyromegaly
+Lungs: Clear to auscultation bilaterally
+CV: Regular rate and rhythm, no murmurs, normal S1/S2
+Abd: Gravid abdomen, fundal height 28 cm, fetus in cephalic presentation, FHR 145 bpm (Category I tracing - reassuring)
+Extremities: Trace pedal edema bilaterally (1+), no calf tenderness
+Neuro: DTRs 2+ bilaterally, no clonus
+
+Labs (drawn today):
+- Urine dipstick: Trace protein, no glucose, no ketones, no leukocytes
+- Hemoglobin A1c: 5.4% (excellent glycemic control)
+- Complete blood count: Hemoglobin 11.2 g/dL (mild physiologic anemia of pregnancy), WBC 9,800/µL, Platelets 215,000/µL
+- Comprehensive metabolic panel: All within normal limits
+- 24-hour urine protein (from last week): 180 mg (normal, <300 mg/24hr)
+
+Fetal ultrasound (performed today):
+- Estimated fetal weight: 1,150 grams (40th percentile for gestational age)
+- Amniotic fluid index: 14 cm (normal)
+- Placenta: Posterior, Grade I, no previa
+- Fetal anatomy: Normal, no anomalies detected
+- Biophysical profile: 8/8 (reassuring)
+
+A:
+1. Intrauterine pregnancy at 28 weeks gestation, singleton, cephalic presentation
+2. Gestational diabetes mellitus, well-controlled with diet
+3. Advanced maternal age (36 years)
+4. History of preeclampsia in previous pregnancy
+5. Mild gestational hypertension (BP trending upward but not yet diagnostic for preeclampsia)
+6. Mild anemia of pregnancy
+7. Appropriate fetal growth, reassuring fetal surveillance
+
+P:
+DIABETES MANAGEMENT:
+- Continue current diabetic diet and glucose monitoring 4x daily
+- Target fasting glucose <95 mg/dL, 1-hour postprandial <140 mg/dL
+- If glucose values consistently elevated (>2 abnormal values in 1 week), will initiate insulin therapy
+- Dietitian follow-up in 2 weeks
+- Continue prenatal vitamins with iron (for anemia)
+
+PREECLAMPSIA SURVEILLANCE:
+- Continue low-dose aspirin 81 mg daily
+- Blood pressure monitoring: patient to check BP at home twice weekly, call if >140/90
+- Watch for warning signs: severe headache, vision changes, right upper quadrant pain, decreased fetal movement
+- Urine protein check at each visit
+- Weekly BP checks starting at 32 weeks (in-office or home monitoring)
+
+ANEMIA MANAGEMENT:
+- Iron supplementation 325 mg ferrous sulfate daily (in addition to prenatal vitamin)
+- Recheck hemoglobin at 32 weeks
+
+FETAL SURVEILLANCE:
+- Biweekly NST (non-stress test) starting at 32 weeks
+- Growth ultrasound at 32 weeks and 36 weeks to monitor for macrosomia (large baby due to GDM)
+- Kick counts daily starting now (at least 10 movements in 2 hours)
+
+DELIVERY PLANNING:
+- Plan for delivery at 39 weeks if well-controlled GDM and no complications
+- If poor glucose control or development of preeclampsia, may deliver earlier (34-37 weeks depending on severity)
+- Discuss delivery plan with patient: preference for vaginal delivery if no obstetric contraindications
+- Plan for pediatric team at delivery due to maternal diabetes (risk of neonatal hypoglycemia)
+
+NEXT VISIT:
+- Return in 2 weeks (30-week visit)
+- Labs: Recheck glucose log, urine protein
+- Continue close monitoring through remainder of pregnancy
+
+Patient counseled on warning signs of preeclampsia and when to call. Questions answered. Will call with any concerns before next scheduled visit.
+
+Signed:
+Dr. Jennifer Williams, MD, FACOG
+Maternal-Fetal Medicine

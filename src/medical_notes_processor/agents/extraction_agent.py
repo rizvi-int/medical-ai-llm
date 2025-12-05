@@ -3,6 +3,8 @@ from langchain_core.messages import HumanMessage, SystemMessage
 from typing import Dict, Any
 import json
 import logging
+from openai import AsyncOpenAI
+from pydantic import BaseModel
 
 from ..core.config import settings
 from ..models.schemas import StructuredMedicalData
@@ -18,6 +20,8 @@ class MedicalExtractionAgent:
             api_key=settings.openai_api_key,
             temperature=0.0,
         )
+        # Use native OpenAI client for structured outputs
+        self.openai_client = AsyncOpenAI(api_key=settings.openai_api_key)
 
     async def extract_structured_data(self, medical_note: str) -> StructuredMedicalData:
         """
@@ -50,9 +54,9 @@ class MedicalExtractionAgent:
         return structured_data
 
     async def _extract_raw_data(self, medical_note: str) -> Dict[str, Any]:
-        """Use LLM to extract structured data from medical note."""
+        """Use LLM with structured outputs to extract data from medical note."""
         system_prompt = """You are a medical information extraction expert with expertise in medical coding.
-Extract structured data from the medical note and return it as valid JSON.
+Extract structured data from the medical note.
 
 Extract the following information:
 1. Patient information (name, DOB, gender, patient_id)
@@ -80,49 +84,60 @@ For each condition, also provide:
 Confidence Levels:
 - HIGH: Explicitly stated diagnosis with clear documentation
 - MEDIUM: Implied or inferred from context, symptoms, or medications
-- LOW: Uncertain or ambiguous, may need review
-
-Return ONLY valid JSON matching this schema:
-{
-  "patient": {"name": "...", "date_of_birth": "YYYY-MM-DD", "gender": "...", "patient_id": "..."},
-  "encounter_date": "YYYY-MM-DD",
-  "chief_complaint": "...",
-  "subjective": "...",
-  "objective": "...",
-  "vital_signs": {"blood_pressure": "...", "heart_rate": "...", "temperature": "...", "respiratory_rate": "...", "oxygen_saturation": "..."},
-  "conditions": [{"name": "...", "status": "...", "suggested_icd10_code": "...", "confidence": "high|medium|low", "code_reasoning": "..."}],
-  "medications": [{"name": "...", "dosage": "...", "frequency": "...", "route": "..."}],
-  "lab_results": [{"test_name": "...", "value": "...", "unit": "...", "reference_range": "..."}],
-  "assessment": "...",
-  "plan_actions": [{"action_type": "...", "description": "...", "timing": "..."}]
-}
-
-If information is not present in the note, omit that field or use null/empty array."""
-
-        messages = [
-            SystemMessage(content=system_prompt),
-            HumanMessage(content=f"Medical Note:\n\n{medical_note}")
-        ]
+- LOW: Uncertain or ambiguous, may need review"""
 
         try:
-            response = await self.llm.ainvoke(messages)
-            content = response.content.strip()
+            # Try structured outputs with Pydantic (works with gpt-4o-2024-08-06+)
+            try:
+                completion = await self.openai_client.beta.chat.completions.parse(
+                    model=settings.openai_model,
+                    messages=[
+                        {"role": "system", "content": system_prompt},
+                        {"role": "user", "content": f"Medical Note:\n\n{medical_note}"}
+                    ],
+                    response_format=StructuredMedicalData,
+                    temperature=0.0,
+                )
+                parsed_data = completion.choices[0].message.parsed
+                return parsed_data.model_dump()
 
-            # Remove markdown code blocks if present
-            if content.startswith("```json"):
-                content = content[7:]
-            if content.startswith("```"):
-                content = content[3:]
-            if content.endswith("```"):
-                content = content[:-3]
-            content = content.strip()
+            except Exception as struct_error:
+                # Fallback to JSON mode with manual parsing for older models
+                logger.warning(f"Structured outputs not supported, using JSON mode: {str(struct_error)}")
 
-            data = json.loads(content)
-            return data
-        except json.JSONDecodeError as e:
-            logger.error(f"Failed to parse LLM response as JSON: {str(e)}")
-            logger.error(f"Response content: {content}")
-            raise ValueError(f"LLM returned invalid JSON: {str(e)}")
+                # Add explicit JSON schema to prompt for json_object mode
+                schema_prompt = system_prompt + """\n\nReturn valid JSON with this exact structure:
+{
+  "patient": {"name": "string", "date_of_birth": "YYYY-MM-DD", "gender": "string", "patient_id": "string"},
+  "encounter_date": "YYYY-MM-DD",
+  "chief_complaint": "string",
+  "subjective": "string",
+  "objective": "string",
+  "vital_signs": {"blood_pressure": "string", "heart_rate": "string", "temperature": "string", "respiratory_rate": "string", "oxygen_saturation": "string"},
+  "conditions": [{"name": "string", "status": "string", "suggested_icd10_code": "string", "confidence": "high|medium|low", "code_reasoning": "string"}],
+  "medications": [{"name": "string", "dosage": "string", "frequency": "string", "route": "string"}],
+  "lab_results": [{"test_name": "string", "value": "string", "unit": "string", "reference_range": "string"}],
+  "assessment": "string",
+  "plan_actions": [{"action_type": "string", "description": "string", "timing": "string"}]
+}"""
+
+                completion = await self.openai_client.chat.completions.create(
+                    model=settings.openai_model,
+                    messages=[
+                        {"role": "system", "content": schema_prompt},
+                        {"role": "user", "content": f"Medical Note:\n\n{medical_note}"}
+                    ],
+                    response_format={"type": "json_object"},
+                    temperature=0.0,
+                )
+
+                content = completion.choices[0].message.content
+                data = json.loads(content)
+
+                # Validate with Pydantic
+                validated = StructuredMedicalData(**data)
+                return validated.model_dump()
+
         except Exception as e:
             logger.error(f"Error extracting structured data: {str(e)}")
             raise

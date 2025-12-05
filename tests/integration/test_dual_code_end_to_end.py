@@ -6,6 +6,15 @@ Tests the complete flow from medical note → LLM extraction → API validation 
 
 import pytest
 from httpx import AsyncClient
+import os
+
+# Skip tests requiring OpenAI API
+pytestmark = pytest.mark.skipif(
+    os.getenv("OPENAI_API_KEY", "").startswith("your-") or not os.getenv("OPENAI_API_KEY"),
+    reason="OpenAI API key not configured"
+)
+
+
 
 
 @pytest.mark.asyncio

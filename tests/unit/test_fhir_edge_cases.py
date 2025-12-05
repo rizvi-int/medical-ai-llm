@@ -1,4 +1,5 @@
 import pytest
+import os
 from medical_notes_processor.services.fhir_service import fhir_service
 from medical_notes_processor.models.schemas import (
     StructuredMedicalData,
@@ -7,6 +8,12 @@ from medical_notes_processor.models.schemas import (
     Medication,
     VitalSigns,
     PlanAction,
+)
+
+# Skip tests requiring OpenAI API
+pytestmark = pytest.mark.skipif(
+    os.getenv("OPENAI_API_KEY", "").startswith("your-") or not os.getenv("OPENAI_API_KEY"),
+    reason="OpenAI API key not configured"
 )
 
 

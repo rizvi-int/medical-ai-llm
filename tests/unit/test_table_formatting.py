@@ -45,8 +45,8 @@ class TestTableFormatting:
 
         result = chatbot._format_as_table(table_data)
 
-        # Check table structure
-        assert "| Case | Document Title | Diagnoses | ICD-10 (AI) | ICD-10 (Validated) | Medications | RxNorm |" in result
+        # Check table structure (updated with Confidence column)
+        assert "| Case | Document Title | Diagnoses | ICD-10 (AI) | Confidence | ICD-10 (Validated) | Medications | RxNorm |" in result
         assert "|------|" in result  # Header separator
 
         # Check data presence
@@ -291,13 +291,13 @@ class TestTableFormatting:
         lines = result.split("\n")
         assert len(lines) >= 4  # Header + separator + at least 2 data rows
 
-        # Header should have 7 columns
+        # Header should have 8 columns (added Confidence column)
         header = lines[0]
-        assert header.count("|") == 8  # 7 columns + edges
+        assert header.count("|") == 9  # 8 columns + edges
 
         # Separator should match header structure
         separator = lines[1]
-        assert separator.count("|") == 8
+        assert separator.count("|") == 9
 
     @pytest.mark.asyncio
     async def test_table_keyword_detection(self):

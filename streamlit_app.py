@@ -7,10 +7,11 @@ processing system using the chatbot API.
 
 import streamlit as st
 import requests
+import os
 from typing import Dict, Any
 
-# API Configuration
-API_BASE = "http://localhost:8000"
+# API Configuration - read from environment or use default
+API_BASE = os.getenv("API_BASE", "http://localhost:8000")
 
 # Page configuration
 st.set_page_config(

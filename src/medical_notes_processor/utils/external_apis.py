@@ -178,32 +178,42 @@ class ExternalAPIClient:
         Enrich condition/diagnosis data with ICD-10 codes from Clinical Tables API.
 
         Takes a list of condition dictionaries and adds ICD-10-CM codes to each
-        by looking them up via the NLM Clinical Tables API.
+        by looking them up via the NLM Clinical Tables API. Preserves AI-suggested
+        codes and adds API-validated codes for comparison.
 
         Args:
             conditions (List[Dict[str, Any]]): List of condition dictionaries,
-                each containing at minimum a "name" field
+                each containing at minimum a "name" field and optionally
+                "suggested_icd10_code" from AI extraction
 
         Returns:
-            List[Dict[str, Any]]: Enriched conditions with "icd10_code" field added
+            List[Dict[str, Any]]: Enriched conditions with both "ai_icd10_code"
+                (from LLM suggestion) and "validated_icd10_code" (from API lookup)
 
         Example:
-            >>> conditions = [{"name": "Type 2 Diabetes", "status": "chronic"}]
+            >>> conditions = [{"name": "Type 2 Diabetes", "status": "chronic", "suggested_icd10_code": "E11.9"}]
             >>> enriched = await client.enrich_conditions(conditions)
             >>> print(enriched)
-            [{"name": "Type 2 Diabetes", "status": "chronic", "icd10_code": "E11.9"}]
+            [{"name": "Type 2 Diabetes", "status": "chronic", "ai_icd10_code": "E11.9", "validated_icd10_code": "E11.9"}]
 
         Note:
             Conditions without a "name" field are skipped.
-            If a code cannot be found, the condition is still included without the code.
+            If API validation fails, only AI code is present.
         """
         enriched = []
         for cond in conditions:
             if "name" in cond:
-                icd10_code = await self.get_icd10_code(cond["name"])
                 cond_copy = cond.copy()
-                if icd10_code:
-                    cond_copy["icd10_code"] = icd10_code
+
+                # Preserve AI-suggested code
+                if "suggested_icd10_code" in cond_copy:
+                    cond_copy["ai_icd10_code"] = cond_copy.pop("suggested_icd10_code")
+
+                # Get API-validated code
+                validated_code = await self.get_icd10_code(cond["name"])
+                if validated_code:
+                    cond_copy["validated_icd10_code"] = validated_code
+
                 enriched.append(cond_copy)
         return enriched
 

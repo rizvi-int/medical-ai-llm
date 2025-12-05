@@ -51,7 +51,7 @@ class MedicalExtractionAgent:
 
     async def _extract_raw_data(self, medical_note: str) -> Dict[str, Any]:
         """Use LLM to extract structured data from medical note."""
-        system_prompt = """You are a medical information extraction expert.
+        system_prompt = """You are a medical information extraction expert with expertise in medical coding.
 Extract structured data from the medical note and return it as valid JSON.
 
 Extract the following information:
@@ -61,11 +61,26 @@ Extract the following information:
 4. Subjective findings
 5. Objective findings
 6. Vital signs (BP, HR, temperature, respiratory rate, O2 saturation)
-7. Conditions/diagnoses (name, status)
+7. Conditions/diagnoses (name, status, suggested_icd10_code)
 8. Medications (name, dosage, frequency, route)
 9. Lab results (test_name, value, unit, reference_range)
 10. Assessment
 11. Plan actions (action_type, description, timing)
+
+IMPORTANT for conditions: Assign the most appropriate ICD-10 code based on clinical reasoning.
+- For routine encounters: Use Z codes (e.g., Z00.00 for general adult exam)
+- For family history: Use Z8x codes (e.g., Z83.42 for family history of hyperlipidemia)
+- For screening/observations: Use appropriate codes (e.g., E66.3 for overweight)
+- Be clinically intelligent - assign codes even when not explicitly stated in documentation
+
+For each condition, also provide:
+- confidence: "high", "medium", or "low" based on documentation clarity
+- code_reasoning: brief explanation (1 sentence) for the code assignment
+
+Confidence Levels:
+- HIGH: Explicitly stated diagnosis with clear documentation
+- MEDIUM: Implied or inferred from context, symptoms, or medications
+- LOW: Uncertain or ambiguous, may need review
 
 Return ONLY valid JSON matching this schema:
 {
@@ -75,7 +90,7 @@ Return ONLY valid JSON matching this schema:
   "subjective": "...",
   "objective": "...",
   "vital_signs": {"blood_pressure": "...", "heart_rate": "...", "temperature": "...", "respiratory_rate": "...", "oxygen_saturation": "..."},
-  "conditions": [{"name": "...", "status": "..."}],
+  "conditions": [{"name": "...", "status": "...", "suggested_icd10_code": "...", "confidence": "high|medium|low", "code_reasoning": "..."}],
   "medications": [{"name": "...", "dosage": "...", "frequency": "...", "route": "..."}],
   "lab_results": [{"test_name": "...", "value": "...", "unit": "...", "reference_range": "..."}],
   "assessment": "...",

@@ -141,9 +141,10 @@ class MedicalChatbot:
             # Auto-detect document IDs from current message
             doc_ids = self._extract_document_ids(user_message)
 
-            # If no IDs found and user says "it" or "them", check last assistant message for IDs
+            # If no IDs found and user references previous context, check last assistant message for IDs
             if not doc_ids and conversation_history:
-                if any(word in user_message.lower() for word in ["it", "them", "that", "those", "these"]):
+                context_words = ["it", "them", "that", "those", "these", "this document", "the document", "this patient", "the patient"]
+                if any(phrase in user_message.lower() for phrase in context_words):
                     # Look back at last few messages for document IDs
                     for msg in reversed(conversation_history[-4:]):
                         if msg.get("role") == "assistant":
@@ -174,20 +175,58 @@ class MedicalChatbot:
             # Handle code extraction requests
             if self._needs_code_extraction(user_message):
                 if doc_ids:
+                    # Default to table format for multiple documents, list for single
+                    # User can override with explicit keywords
+                    if "list" in user_message.lower() or "detailed" in user_message.lower():
+                        wants_table = False
+                    elif "table" in user_message.lower():
+                        wants_table = True
+                    else:
+                        # Smart default: table for 2+ docs, list for single doc
+                        wants_table = len(doc_ids) > 1
+
                     # Extract codes from all specified documents
                     results = []
+                    table_data = []  # For table format
+
                     for doc_id in doc_ids:
                         doc = await self._get_document(doc_id)
                         if doc:
                             structured = await self._extract_codes(doc["content"])
                             if structured:
-                                results.append(self._format_structured_data(structured, doc["title"]))
+                                if wants_table:
+                                    # Collect data for table
+                                    table_data.append({
+                                        "doc_id": doc_id,
+                                        "title": doc["title"],
+                                        "structured": structured
+                                    })
+                                else:
+                                    results.append(self._format_structured_data(structured, doc["title"]))
                             else:
-                                results.append(f"Document {doc_id}: No structured data extracted")
+                                if wants_table:
+                                    table_data.append({
+                                        "doc_id": doc_id,
+                                        "title": doc["title"],
+                                        "structured": None
+                                    })
+                                else:
+                                    results.append(f"Document {doc_id}: No structured data extracted")
                         else:
                             results.append(f"Document {doc_id}: Not found")
 
-                    return "\n\n" + "="*50 + "\n\n".join(results) if results else "No documents processed."
+                    if wants_table and table_data:
+                        table_output = self._format_as_table(table_data)
+                        # Add helpful footer suggesting alternative formats
+                        footer = "\n\n💡 **Tip**: You can also ask for:\n- 'detailed list' for more information with reasoning\n- 'show confidence scores' to see AI confidence levels\n- 'export to CSV' for spreadsheet format"
+                        return table_output + footer
+
+                    results_output = "\n\n" + "="*50 + "\n\n".join(results) if results else "No documents processed."
+                    # Add helpful footer for list format
+                    if len(doc_ids) > 1:
+                        footer = "\n\n💡 **Tip**: Try asking for 'in a table' to compare documents side-by-side"
+                        results_output += footer
+                    return results_output
                 else:
                     # Extract from all documents if "all" is mentioned
                     if "all" in user_message.lower():
@@ -260,8 +299,87 @@ class MedicalChatbot:
 
         return "I have 6 medical documents available. Please ask about a specific document by ID (1-6) to extract ICD-10 codes or medications."
 
+    def _format_as_table(self, table_data: list) -> str:
+        """Format multiple document results as a markdown table."""
+        if not table_data:
+            return "No data to display"
+
+        # Build table header with Confidence column
+        table = ["| Case | Document Title | Diagnoses | ICD-10 (AI) | Confidence | ICD-10 (Validated) | Medications | RxNorm |"]
+        table.append("|------|---------------|-----------|-------------|------------|-------------------|-------------|--------|")
+
+        for item in table_data:
+            doc_id = item["doc_id"]
+            title = item["title"]
+            structured = item["structured"]
+
+            if not structured:
+                table.append(f"| {doc_id} | {title} | No data | - | - | - | - | - |")
+                continue
+
+            # Get conditions and medications
+            conditions = structured.get("diagnoses") or structured.get("conditions") or []
+            medications = structured.get("medications") or []
+
+            # If no conditions or meds, show empty row
+            if not conditions and not medications:
+                table.append(f"| {doc_id} | {title} | None found | - | - | - | None found | - |")
+                continue
+
+            # First row with doc info
+            first_row = True
+
+            # Process conditions
+            if conditions:
+                for cond in conditions:
+                    name = cond.get("name", "Unknown")
+                    ai_code = cond.get("ai_icd10_code", "N/A")
+                    validated_code = cond.get("validated_icd10_code", "N/A")
+                    confidence = cond.get("confidence", "").upper()
+
+                    # Format confidence as stars
+                    if confidence == "HIGH":
+                        conf_display = "⭐⭐⭐"
+                    elif confidence == "MEDIUM":
+                        conf_display = "⭐⭐"
+                    elif confidence == "LOW":
+                        conf_display = "⭐"
+                    else:
+                        conf_display = "-"
+
+                    if first_row:
+                        # Include medications in first row if available
+                        if medications:
+                            med = medications[0]
+                            med_name = med.get("name", "Unknown")
+                            rx_code = med.get("rxnorm_code", "N/A")
+                            table.append(f"| {doc_id} | {title} | {name} | {ai_code} | {conf_display} | {validated_code} | {med_name} | {rx_code} |")
+                        else:
+                            table.append(f"| {doc_id} | {title} | {name} | {ai_code} | {conf_display} | {validated_code} | - | - |")
+                        first_row = False
+                    else:
+                        table.append(f"|  |  | {name} | {ai_code} | {conf_display} | {validated_code} |  |  |")
+
+            # Process remaining medications (if conditions already printed)
+            if medications and conditions:
+                start_idx = 1  # Skip first med if already printed
+            elif medications:
+                start_idx = 0
+
+            if medications:
+                for med in medications[start_idx:]:
+                    med_name = med.get("name", "Unknown")
+                    rx_code = med.get("rxnorm_code", "N/A")
+                    if first_row:
+                        table.append(f"| {doc_id} | {title} | - | - | - | {med_name} | {rx_code} |")
+                        first_row = False
+                    else:
+                        table.append(f"|  |  |  |  |  | {med_name} | {rx_code} |")
+
+        return "\n".join(table)
+
     def _format_structured_data(self, structured: Dict[str, Any], doc_title: str = "") -> str:
-        """Format extracted structured data for display."""
+        """Format extracted structured data for display with dual code display."""
         parts = []
 
         if doc_title:
@@ -270,11 +388,49 @@ class MedicalChatbot:
         # Handle both "diagnoses" and "conditions" keys
         conditions = structured.get("diagnoses") or structured.get("conditions")
         if conditions:
-            parts.append("Diagnoses:")
-            for diag in conditions:
-                code = diag.get("icd10_code", "N/A")
-                name = diag.get("name", "Unknown")
-                parts.append(f"  • {name} (ICD-10: {code})")
+            # Separate AI-inferred and validated codes for clearer presentation
+            has_ai_codes = any(diag.get("ai_icd10_code") for diag in conditions)
+            has_validated_codes = any(diag.get("validated_icd10_code") for diag in conditions)
+
+            if has_ai_codes:
+                parts.append("Diagnoses (AI-Inferred Codes):")
+                for diag in conditions:
+                    ai_code = diag.get("ai_icd10_code", "Not assigned")
+                    name = diag.get("name", "Unknown")
+                    confidence = diag.get("confidence", "").upper()
+                    reasoning = diag.get("code_reasoning", "")
+
+                    # Format confidence with stars
+                    confidence_display = ""
+                    if confidence == "HIGH":
+                        confidence_display = " ⭐⭐⭐"
+                    elif confidence == "MEDIUM":
+                        confidence_display = " ⭐⭐"
+                    elif confidence == "LOW":
+                        confidence_display = " ⭐"
+
+                    line = f"  • {name} (ICD-10: {ai_code}){confidence_display}"
+                    if confidence:
+                        line += f" {confidence}"
+                    parts.append(line)
+
+                    if reasoning:
+                        parts.append(f"    → {reasoning}")
+
+            if has_validated_codes:
+                parts.append("\nDiagnoses (API-Validated Codes):")
+                for diag in conditions:
+                    validated_code = diag.get("validated_icd10_code", "Not found in database")
+                    name = diag.get("name", "Unknown")
+                    parts.append(f"  • {name} (ICD-10: {validated_code})")
+
+            # Fallback to old format if neither new field exists
+            if not has_ai_codes and not has_validated_codes:
+                parts.append("Diagnoses:")
+                for diag in conditions:
+                    code = diag.get("icd10_code", "N/A")
+                    name = diag.get("name", "Unknown")
+                    parts.append(f"  • {name} (ICD-10: {code})")
 
         if structured.get("medications"):
             parts.append("\nMedications:")

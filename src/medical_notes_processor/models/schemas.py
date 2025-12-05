@@ -61,7 +61,12 @@ class Medication(BaseModel):
 class Condition(BaseModel):
     name: str
     status: Optional[str] = None
-    icd10_code: Optional[str] = None
+    icd10_code: Optional[str] = None  # Legacy field for backward compatibility
+    suggested_icd10_code: Optional[str] = None  # AI-suggested code from LLM
+    ai_icd10_code: Optional[str] = None  # AI-inferred code (transformed from suggested)
+    validated_icd10_code: Optional[str] = None  # API-validated code from Clinical Tables
+    confidence: Optional[str] = None  # high, medium, low - confidence in code assignment
+    code_reasoning: Optional[str] = None  # Brief explanation for code assignment
 
 
 class LabResult(BaseModel):

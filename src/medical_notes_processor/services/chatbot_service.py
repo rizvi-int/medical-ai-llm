@@ -418,9 +418,9 @@ class MedicalChatbot:
             return f"Sorry, I encountered an error: {str(e)}"
 
     async def _get_documents_list(self) -> str:
-        """Get formatted list of all documents."""
+        """Get formatted list of all documents as a table with patient name and date."""
         try:
-            async with httpx.AsyncClient() as client:
+            async with httpx.AsyncClient(timeout=30.0) as client:
                 response = await client.get(f"{self.api_base}/documents")
                 if response.status_code == 200:
                     doc_ids = response.json()
@@ -431,15 +431,32 @@ class MedicalChatbot:
                         doc_response = await client.get(f"{self.api_base}/documents/{doc_id}")
                         if doc_response.status_code == 200:
                             doc = doc_response.json()
-                            docs_info.append(f"  • Document {doc['id']}: {doc['title']}")
+                            patient_name = doc.get('patient_name') or "-"
+                            encounter_date = doc.get('encounter_date') or "-"
+                            if encounter_date != "-" and isinstance(encounter_date, str):
+                                # Format date nicely if it exists
+                                try:
+                                    from datetime import datetime as dt
+                                    date_obj = dt.fromisoformat(encounter_date.replace('Z', '+00:00'))
+                                    encounter_date = date_obj.strftime("%Y-%m-%d")
+                                except:
+                                    pass
+                            docs_info.append((doc['id'], doc['title'], patient_name, encounter_date))
 
                     if docs_info:
-                        return f"Available medical documents:\n\n" + "\n".join(docs_info) + "\n\nTo extract ICD-10 codes or medications, ask about specific documents by ID."
+                        # Format as table
+                        lines = ["Available medical documents:\n"]
+                        lines.append("| ID | Document Title | Patient Name | Date |")
+                        lines.append("|----|----------------|--------------|------|")
+                        for doc_id, title, patient, date in docs_info:
+                            lines.append(f"| {doc_id} | {title} | {patient} | {date} |")
+                        lines.append("\nTo extract ICD-10 codes or medications, ask about specific documents by ID.")
+                        return "\n".join(lines)
                     return "No documents found."
         except Exception as e:
             logger.error(f"Error listing documents: {str(e)}")
 
-        return "I have 6 medical documents available. Please ask about a specific document by ID (1-6) to extract ICD-10 codes or medications."
+        return "I have medical documents available. Please ask about a specific document by ID to extract ICD-10 codes or medications."
 
     def _format_as_csv(self, table_data: list) -> str:
         """Format multiple document results as CSV."""

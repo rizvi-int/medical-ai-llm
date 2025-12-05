@@ -7,6 +7,8 @@ from typing import Optional, List, Dict, Any
 class DocumentBase(BaseModel):
     title: str = Field(..., min_length=1, max_length=255)
     content: str = Field(..., min_length=1)
+    patient_name: Optional[str] = None
+    encounter_date: Optional[datetime] = None
 
 
 class DocumentCreate(DocumentBase):

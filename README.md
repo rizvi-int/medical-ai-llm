@@ -27,6 +27,7 @@ docker compose up -d
 - **Smart Inference**: Assigns codes for encounters, family history, and observations
 
 ### 2. Conversational Chatbot
+- **Document listing**: "what documents are available?" - Shows table with ID, Title, Patient Name, and Date
 - **Multi-document queries**: "show codes for doc 1, 2, and 3"
 - **Context awareness**: "export to csv" remembers previous documents
 - **Multiple formats**: Table, CSV, detailed list with reasoning
@@ -255,6 +256,13 @@ docker compose exec db psql -U user -d medical_notes
 **Clear cache/sessions:**
 ```bash
 curl -X POST http://localhost:8000/chat/reset?session_id=your-session-id
+```
+
+**Populate patient metadata (optional):**
+```bash
+# Extract patient names and dates from document content
+docker compose exec app python scripts/migrate_add_metadata.py
+# Takes ~10-15 minutes for 14 documents
 ```
 
 ## Documentation

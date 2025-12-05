@@ -18,7 +18,6 @@ Access:
 |---------|------|---------|
 | app | 8000 | FastAPI backend with LLM extraction |
 | streamlit | 8501 | Conversational UI |
-| db | 5432 | PostgreSQL database |
 | qdrant | 6333 | Vector database for RAG |
 
 ## Common Commands
@@ -41,9 +40,6 @@ docker compose up --build
 
 # Shell into container
 docker compose exec app bash
-
-# Database access
-docker compose exec db psql -U user -d medical_notes
 ```
 
 ## Troubleshooting

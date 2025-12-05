@@ -94,7 +94,7 @@ FastAPI Backend (Port 8000)
 │   ├── RxNorm/ICD-10 enrichment
 │   └── Session-based caching
 ├── RAG Pipeline (Qdrant vector DB)
-├── PostgreSQL Database
+├── SQLite Database
 └── FHIR Converter
 
 Streamlit UI (Port 8501)
@@ -253,7 +253,7 @@ OPENAI_API_KEY=your-key-here
 
 # Optional (defaults shown)
 OPENAI_MODEL=gpt-4o
-DATABASE_URL=postgresql://user:pass@db:5432/medical_notes
+DATABASE_URL=sqlite+aiosqlite:///./data/medical_notes.db
 QDRANT_HOST=qdrant
 QDRANT_PORT=6333
 ```
@@ -297,7 +297,7 @@ See [DOCKER.md](DOCKER.md) for detailed troubleshooting.
 
 - **Backend**: FastAPI, Python 3.11, asyncio
 - **AI**: OpenAI GPT-4, LangChain
-- **Database**: PostgreSQL, SQLAlchemy
+- **Database**: SQLite, SQLAlchemy
 - **Vector DB**: Qdrant
 - **UI**: Streamlit
 - **Deployment**: Docker Compose

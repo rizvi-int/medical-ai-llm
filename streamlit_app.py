@@ -55,7 +55,7 @@ def send_message(message: str) -> Dict[str, Any]:
     """Send a message to the chatbot API."""
     try:
         # Use longer timeout for "all patients" requests
-        timeout = 120 if "all" in message.lower() else 60
+        timeout = 300
         response = requests.post(
             f"{API_BASE}/chat",
             json={

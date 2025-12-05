@@ -40,7 +40,7 @@ class MedicalChatbot:
     async def _extract_codes(self, text: str) -> Optional[Dict[str, Any]]:
         """Extract ICD-10/RxNorm codes from text."""
         try:
-            async with httpx.AsyncClient(timeout=30.0) as client:
+            async with httpx.AsyncClient(timeout=300.0) as client:
                 response = await client.post(
                     f"{self.api_base}/extract_structured",
                     json={"text": text}
@@ -54,7 +54,7 @@ class MedicalChatbot:
     async def _summarize_note(self, text: str) -> str:
         """Generate summary of medical note."""
         try:
-            async with httpx.AsyncClient(timeout=30.0) as client:
+            async with httpx.AsyncClient(timeout=300.0) as client:
                 response = await client.post(
                     f"{self.api_base}/summarize_note",
                     json={"text": text}
@@ -68,7 +68,7 @@ class MedicalChatbot:
     async def _rag_search(self, query: str, top_k: int = 3) -> Optional[Dict[str, Any]]:
         """Search documents using RAG."""
         try:
-            async with httpx.AsyncClient(timeout=30.0) as client:
+            async with httpx.AsyncClient(timeout=300.0) as client:
                 response = await client.post(
                     f"{self.api_base}/answer_question",
                     json={"question": query, "top_k": top_k}
@@ -198,7 +198,7 @@ class MedicalChatbot:
                     if structured:
                         # Convert to FHIR
                         try:
-                            async with httpx.AsyncClient(timeout=30.0) as client:
+                            async with httpx.AsyncClient(timeout=300.0) as client:
                                 response = await client.post(
                                     f"{self.api_base}/to_fhir",
                                     json={"structured_data": structured}
@@ -420,7 +420,7 @@ class MedicalChatbot:
     async def _get_documents_list(self) -> str:
         """Get formatted list of all documents as a table with patient name and date."""
         try:
-            async with httpx.AsyncClient(timeout=30.0) as client:
+            async with httpx.AsyncClient(timeout=300.0) as client:
                 response = await client.get(f"{self.api_base}/documents")
                 if response.status_code == 200:
                     doc_ids = response.json()

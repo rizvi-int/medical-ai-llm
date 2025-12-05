@@ -41,7 +41,7 @@ class ExternalAPIClient:
         """Initialize the external API client with configured endpoints."""
         self.nlm_base_url = settings.nlm_api_base_url
         self.clinicaltables_base_url = settings.clinicaltables_api_base_url
-        self.timeout = 30.0
+        self.timeout = 300.0
 
     @retry(stop=stop_after_attempt(3), wait=wait_exponential(min=1, max=10))
     async def get_rxnorm_code(self, medication_name: str) -> Optional[str]:

@@ -302,7 +302,3 @@ See [DOCKER.md](DOCKER.md) for detailed troubleshooting.
 - **UI**: Streamlit
 - **Deployment**: Docker Compose
 - **Testing**: pytest, httpx
-
-## License
-
-Proprietary

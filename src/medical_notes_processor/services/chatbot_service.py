@@ -84,9 +84,17 @@ class MedicalChatbot:
         code_keywords = [
             "icd", "icd-10", "icd10", "diagnosis code", "diagnostic code",
             "rxnorm", "medication code", "drug code", "ndc",
-            "cpt", "procedure code", "billing code", "extract"
+            "cpt", "procedure code", "billing code", "extract",
+            "codes", "code"  # Added to catch "codes for doc X"
         ]
         message_lower = message.lower()
+
+        # Also check if it's a format request that implies code extraction
+        format_keywords = ["export", "csv", "table", "list"]
+        if any(fmt in message_lower for fmt in format_keywords):
+            # These format requests should trigger code extraction
+            return True
+
         return any(keyword in message_lower for keyword in code_keywords)
 
     def _needs_summarization(self, message: str) -> bool:
@@ -141,16 +149,25 @@ class MedicalChatbot:
             # Auto-detect document IDs from current message
             doc_ids = self._extract_document_ids(user_message)
 
-            # If no IDs found and user references previous context, check last assistant message for IDs
+            # If no IDs found and user has conversation history, try to infer from context
             if not doc_ids and conversation_history:
+                # Explicit context references
                 context_words = ["it", "them", "that", "those", "these", "this document", "the document", "this patient", "the patient"]
-                if any(phrase in user_message.lower() for phrase in context_words):
-                    # Look back at last few messages for document IDs
-                    for msg in reversed(conversation_history[-4:]):
-                        if msg.get("role") == "assistant":
-                            doc_ids = self._extract_document_ids(msg.get("content", ""))
-                            if doc_ids:
-                                break
+                has_context_word = any(phrase in user_message.lower() for phrase in context_words)
+
+                # Also check for requests that suggest continuing previous work
+                continuation_keywords = ["export", "csv", "show", "display", "confidence", "detailed", "table", "list"]
+                is_continuation = any(keyword in user_message.lower() for keyword in continuation_keywords)
+
+                if has_context_word or is_continuation:
+                    # Look back through conversation to find previously mentioned documents
+                    for msg in reversed(conversation_history[-6:]):  # Look back up to 6 messages
+                        # Check both user and assistant messages
+                        msg_content = msg.get("content", "")
+                        found_ids = self._extract_document_ids(msg_content)
+                        if found_ids:
+                            doc_ids = found_ids
+                            break
 
             if not doc_ids and note_id:
                 doc_ids = [note_id]
@@ -175,50 +192,54 @@ class MedicalChatbot:
             # Handle code extraction requests
             if self._needs_code_extraction(user_message):
                 if doc_ids:
-                    # Default to table format for multiple documents, list for single
-                    # User can override with explicit keywords
-                    if "list" in user_message.lower() or "detailed" in user_message.lower():
-                        wants_table = False
-                    elif "table" in user_message.lower():
-                        wants_table = True
-                    else:
-                        # Smart default: table for 2+ docs, list for single doc
+                    # Determine output format
+                    wants_csv = "csv" in user_message.lower() or "export" in user_message.lower()
+                    wants_list = "list" in user_message.lower() or "detailed" in user_message.lower()
+                    wants_table = "table" in user_message.lower()
+
+                    # Smart defaults if no format specified
+                    if not wants_csv and not wants_list and not wants_table:
+                        # Default: table for 2+ docs, list for single doc
                         wants_table = len(doc_ids) > 1
+                        wants_list = len(doc_ids) == 1
 
                     # Extract codes from all specified documents
                     results = []
-                    table_data = []  # For table format
+                    table_data = []  # For structured formats (table/CSV)
 
                     for doc_id in doc_ids:
                         doc = await self._get_document(doc_id)
                         if doc:
                             structured = await self._extract_codes(doc["content"])
                             if structured:
-                                if wants_table:
-                                    # Collect data for table
-                                    table_data.append({
-                                        "doc_id": doc_id,
-                                        "title": doc["title"],
-                                        "structured": structured
-                                    })
-                                else:
+                                # Always collect for table_data (used by both table and CSV)
+                                table_data.append({
+                                    "doc_id": doc_id,
+                                    "title": doc["title"],
+                                    "structured": structured
+                                })
+                                if wants_list:
                                     results.append(self._format_structured_data(structured, doc["title"]))
                             else:
-                                if wants_table:
-                                    table_data.append({
-                                        "doc_id": doc_id,
-                                        "title": doc["title"],
-                                        "structured": None
-                                    })
-                                else:
+                                table_data.append({
+                                    "doc_id": doc_id,
+                                    "title": doc["title"],
+                                    "structured": None
+                                })
+                                if wants_list:
                                     results.append(f"Document {doc_id}: No structured data extracted")
                         else:
-                            results.append(f"Document {doc_id}: Not found")
+                            if wants_list:
+                                results.append(f"Document {doc_id}: Not found")
+
+                    # Return in requested format
+                    if wants_csv and table_data:
+                        return self._format_as_csv(table_data)
 
                     if wants_table and table_data:
                         table_output = self._format_as_table(table_data)
                         # Add helpful footer suggesting alternative formats
-                        footer = "\n\n💡 **Tip**: You can also ask for:\n- 'detailed list' for more information with reasoning\n- 'show confidence scores' to see AI confidence levels\n- 'export to CSV' for spreadsheet format"
+                        footer = "\n\n💡 **Tip**: You can also ask for:\n- 'detailed list' for more information with reasoning\n- 'export to CSV' for spreadsheet format"
                         return table_output + footer
 
                     results_output = "\n\n" + "="*50 + "\n\n".join(results) if results else "No documents processed."
@@ -298,6 +319,68 @@ class MedicalChatbot:
             logger.error(f"Error listing documents: {str(e)}")
 
         return "I have 6 medical documents available. Please ask about a specific document by ID (1-6) to extract ICD-10 codes or medications."
+
+    def _format_as_csv(self, table_data: list) -> str:
+        """Format multiple document results as CSV."""
+        if not table_data:
+            return "No data to export"
+
+        lines = []
+        # CSV header
+        lines.append("Case,Document Title,Diagnosis,ICD-10 (AI),Confidence,ICD-10 (Validated),Medication,RxNorm,Code Reasoning")
+
+        for item in table_data:
+            doc_id = item["doc_id"]
+            title = item["title"].replace(",", ";")  # Escape commas in title
+            structured = item["structured"]
+
+            if not structured:
+                lines.append(f'{doc_id},{title},No data,-,-,-,-,-,-')
+                continue
+
+            conditions = structured.get("diagnoses") or structured.get("conditions") or []
+            medications = structured.get("medications") or []
+
+            if not conditions and not medications:
+                lines.append(f'{doc_id},{title},None found,-,-,-,None found,-,-')
+                continue
+
+            # Export all conditions and medications
+            max_items = max(len(conditions), len(medications))
+
+            for i in range(max_items):
+                # Condition data
+                if i < len(conditions):
+                    cond = conditions[i]
+                    diag_name = cond.get("name", "").replace(",", ";")
+                    ai_code = cond.get("ai_icd10_code", "N/A")
+                    validated_code = cond.get("validated_icd10_code", "N/A")
+                    confidence = cond.get("confidence", "").upper()
+                    reasoning = cond.get("code_reasoning", "").replace(",", ";")
+                else:
+                    diag_name = ""
+                    ai_code = ""
+                    validated_code = ""
+                    confidence = ""
+                    reasoning = ""
+
+                # Medication data
+                if i < len(medications):
+                    med = medications[i]
+                    med_name = med.get("name", "").replace(",", ";")
+                    rx_code = med.get("rxnorm_code", "N/A")
+                else:
+                    med_name = ""
+                    rx_code = ""
+
+                # Only include doc_id and title in first row
+                if i == 0:
+                    lines.append(f'{doc_id},{title},{diag_name},{ai_code},{confidence},{validated_code},{med_name},{rx_code},"{reasoning}"')
+                else:
+                    lines.append(f',,{diag_name},{ai_code},{confidence},{validated_code},{med_name},{rx_code},"{reasoning}"')
+
+        csv_content = "\n".join(lines)
+        return f"```csv\n{csv_content}\n```\n\n💾 **Copy the CSV above** and paste into Excel or save as a .csv file"
 
     def _format_as_table(self, table_data: list) -> str:
         """Format multiple document results as a markdown table."""

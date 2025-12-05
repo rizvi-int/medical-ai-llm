@@ -45,6 +45,11 @@ if "messages" not in st.session_state:
 if "conversation_count" not in st.session_state:
     st.session_state.conversation_count = 0
 
+# Generate a unique session ID for this Streamlit session
+if "session_id" not in st.session_state:
+    import uuid
+    st.session_state.session_id = str(uuid.uuid4())
+
 
 def send_message(message: str) -> Dict[str, Any]:
     """Send a message to the chatbot API."""
@@ -53,7 +58,10 @@ def send_message(message: str) -> Dict[str, Any]:
         timeout = 120 if "all" in message.lower() else 60
         response = requests.post(
             f"{API_BASE}/chat",
-            json={"message": message},
+            json={
+                "message": message,
+                "session_id": st.session_state.session_id  # Include session ID for memory
+            },
             timeout=timeout
         )
         response.raise_for_status()
@@ -130,9 +138,23 @@ st.title("Medical Notes AI Assistant")
 st.markdown("Query medical notes for summaries, structured extraction, and FHIR conversion.")
 
 # Display chat messages
-for message in st.session_state.messages:
+for idx, message in enumerate(st.session_state.messages):
     with st.chat_message(message["role"]):
         st.markdown(message["content"])
+
+        # Add download button if message contains CSV
+        if message["role"] == "assistant" and "```csv" in message["content"]:
+            csv_start = message["content"].find("```csv\n") + 7
+            csv_end = message["content"].find("\n```", csv_start)
+            if csv_start > 6 and csv_end > csv_start:
+                csv_content = message["content"][csv_start:csv_end]
+                st.download_button(
+                    label="📥 Download CSV File",
+                    data=csv_content,
+                    file_name="medical_codes_export.csv",
+                    mime="text/csv",
+                    key=f"download_history_{idx}"
+                )
 
 # Chat input
 if prompt := st.chat_input("Enter query..."):
@@ -152,6 +174,23 @@ if prompt := st.chat_input("Enter query..."):
 
             # Display assistant response
             st.markdown(response)
+
+            # If response contains CSV data, add download button
+            if "```csv" in response:
+                # Extract CSV content from code block
+                csv_start = response.find("```csv\n") + 7
+                csv_end = response.find("\n```", csv_start)
+                if csv_start > 6 and csv_end > csv_start:
+                    csv_content = response[csv_start:csv_end]
+
+                    # Create download button
+                    st.download_button(
+                        label="📥 Download CSV File",
+                        data=csv_content,
+                        file_name="medical_codes_export.csv",
+                        mime="text/csv",
+                        key=f"download_{len(st.session_state.messages)}"  # Unique key
+                    )
 
     # Add assistant response to chat history
     st.session_state.messages.append({"role": "assistant", "content": response})
